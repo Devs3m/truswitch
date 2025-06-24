@@ -1,0 +1,1024 @@
+// app.component.scss
+/* Variables */
+$primary-color: #FF4E45;
+$secondary-color: #2D3647;
+$text-color: #666;
+
+/* Base Styles */
+.truswitch-container {
+  font-family: 'Poppins', sans-serif;
+  color: $text-color;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 40px 6px rgba($secondary-color, 0.07);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+
+  .navbar-left {
+    display: flex;
+    align-items: center;
+
+    .logo-img {
+      height: 41px;
+      margin-right: 8px;
+    }
+
+    .logotext-img {
+      height: 32px;
+    }
+  }
+
+  .navbar-right {
+    margin-right: 100px;
+
+    a {
+      font-weight: 500;
+      font-size: 18px;
+      color: $secondary-color;
+      font-family: "Poppins";
+      margin-left: 2rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+
+.fixed-height-carousel {
+  height: 660px;
+}
+
+.fixed-height-carousel .carousel-inner,
+.fixed-height-carousel .carousel-item,
+.fixed-height-carousel .container,
+.fixed-height-carousel .row {
+  height: 100%;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+}
+
+.hero {
+  background-color: #fff;
+  position: relative;
+  top: -50px;
+
+  .carousel-item {
+    margin: 0 75px;
+  }
+
+  .hero-content {
+    padding: 40px;
+
+    .lead-header {
+      //   margin-bottom: 20px;
+      font-family: "Poppins";
+      font-weight: 600;
+      font-size: 30px;
+      letter-spacing: 0px;
+      color: #2D3647;
+
+    }
+
+    .lead {
+      margin-bottom: 30px;
+      font-family: "Montserrat";
+      font-weight: 400;
+      // font-size: 22px;
+      font-size: 23px;
+      letter-spacing: -0.25px;
+      color: #2D3647;
+
+    }
+  }
+
+  .cta-section {
+    margin-top: 30px;
+
+    .ready-text {
+      margin-bottom: 15px;
+      color: $secondary-color;
+      font-family: "Montserrat";
+      font-weight: 400;
+      font-size: 22px;
+      color: #2D3647;
+
+    }
+  }
+
+  .btn-join {
+    background-color: $primary-color;
+    font-family: "Poppins";
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 52px;
+    font-weight: 500;
+    border-radius: 1000px;
+    transition: all 0.3s ease;
+    margin-top: 50px;
+    gap: 10px;
+    font-size: 22px;
+
+
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.carousel-indicators {
+  button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #FF4E45;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    opacity: 1;
+    transition: all 0.3s ease;
+
+    &.active {
+      background-color: transparent;
+      border: 2px solid #FF4E45;
+      width: 16px;
+      height: 16px;
+
+      box-sizing: border-box;
+    }
+  }
+}
+
+.carousel-control-next-icon {
+  display: none;
+}
+
+#joinModal .modal-content {
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0px 2px 40px 6px #00000012;
+  padding: 30px;
+
+}
+
+#joinModal .modal-header {
+  border-bottom: none;
+  padding: 1.5rem;
+}
+
+#joinModal .modal-title {
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 25px;
+  letter-spacing: 0px;
+  color: #2D3647;
+
+
+}
+
+#joinModal .modal-body {
+  margin: 0 25px;
+  padding: 2rem;
+}
+
+#joinModal .modal-footer {
+  border: none;
+}
+
+#joinModal .form-label {
+  // font-family: "Montserrat";
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: #2D3647;
+
+}
+
+#joinModal .form-control {
+  gap: 10px;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-right: 12px;
+  padding-bottom: 10px;
+  padding-left: 12px;
+  background: #F6F6F6;
+  border: none;
+  height: 40px;
+
+}
+
+#joinModal .form-control::placeholder {
+  color: #8F8F8F;
+  opacity: 1;
+}
+
+#joinModal .btn-submit {
+  color: #FFFFFF;
+  border: none;
+  text-align: center;
+  border-radius: 1000px;
+  position: relative;
+  bottom: 85px;
+  right: 120px;
+  background: #FF4E45;
+  width: 140px;
+  height: 55px;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 18px;
+
+}
+
+#joinModal .btn-close {
+  background: transparent;
+  color: #FF4E45 !important;
+  font-size: 20px;
+  font-weight: 900;
+  opacity: 1;
+  box-shadow: none;
+  position: relative;
+  bottom: 20px;
+}
+
+#joinModal .btn-close:hover {
+  color: #e04138 !important;
+}
+
+#joinModal .btn-close::before {
+  content: "✕";
+  display: block;
+  line-height: 1;
+}
+
+#joinModal .btn-close {
+  background-image: none !important;
+}
+
+input.form-control {
+  box-shadow: none !important;
+  outline: none !important;
+  transition: none;
+
+  &:hover,
+  &:focus {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+}
+
+// product Styles
+
+
+.products-container {
+  background: #f8f8f8;
+}
+
+.products-title {
+  position: relative;
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 50px;
+  letter-spacing: 0px;
+  color: #2D3647;
+
+
+}
+
+.feature-list {
+  li {
+    font-family: "Montserrat";
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: -0.25px;
+    margin-bottom: 1rem;
+    color: #2D3647;
+  }
+}
+
+.image-box {
+  background: #ffffff;
+  padding: 30px;
+  position: relative;
+  height: 486px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -90px;
+}
+
+.img-scooter {
+  width: 700px;
+  height: 700px;
+  position: absolute;
+  right: 250px;
+  bottom: -50px;
+}
+
+.img-bike {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  bottom: 75px;
+  left: 240px;
+}
+
+.Product-details {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: -0.25px;
+
+}
+
+.Product-title-border {
+  margin-top: -15px;
+  margin-right: 387px;
+  width: 436px;
+  height: 10px;
+}
+
+.bg-dark {
+  background-color: #2D3647 !important;
+}
+
+.metrics-heading {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 50px;
+  color: #ffffff;
+  margin-left: 50px;
+  margin-bottom: 40px;
+}
+
+.metric-number {
+  color: rgba(17, 215, 164, 0.95);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 58px;
+  letter-spacing: 0px;
+  margin-bottom: 10px;
+}
+
+.metric-label {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 34px;
+  text-align: left;
+  margin: 0 38px;
+}
+
+.image-box1 {
+  padding: 30px;
+  position: relative;
+  height: 486px;
+}
+
+.img-mobile {
+
+  width: 785px;
+  height: 815px;
+  position: absolute;
+  bottom: -150px;
+  left: 17px;
+}
+
+
+.bg-dark {
+  background-color: #2D3647 !important;
+}
+
+
+.Appmetric-number {
+  color: rgba(17, 215, 164, 0.95);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 58px;
+  margin-bottom: 5px;
+  text-align: left;
+
+
+}
+
+.Appmetric-label {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 34px;
+  text-align: left;
+
+
+}
+
+// partners styles
+
+
+
+
+.partner-section {
+  background-color: #f9f9f9;
+
+  .partners-title {
+    font-family: "Poppins";
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 50px;
+    color: #2D3647;
+
+
+  }
+
+  .tab-buttons {
+    margin-left: 97px;
+    margin-top: -25px;
+  }
+
+  .tab-btn {
+    color: #2D3647;
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 32px;
+    border-radius: 10px;
+    border: none !important;
+    padding: 14px 38px;
+    transition: all 0.2s ease-in-out;
+    background: #FFFFFF;
+    width: 298px;
+    height: 60px;
+    gap: 10px;
+    box-shadow: 0px 2px 40px 6px #00000012;
+
+
+    &:focus {
+      border: none;
+    }
+
+    &.active {
+      color: #ff4d4f;
+      border: none;
+    }
+  }
+
+  .Commercial-imgbox {
+    background: #ffffff;
+    padding: 30px;
+    height: 486px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 690px;
+    margin-left: -60px;
+
+  }
+
+  .Commercial-content-title {
+    font-family: "Poppins";
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: 0px;
+    color: #2D3647;
+
+  }
+
+  .Commercial-content {
+    font-family: "Montserrat";
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: -0.25px;
+    color: #2D3647;
+
+
+  }
+
+  .btn-gradient {
+    background: #FF4E45;
+    color: #FFFFFF;
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: 0px;
+    text-align: center;
+    border: none;
+    transition: all 0.3s ease;
+    width: 263px;
+    height: 65px;
+    gap: 10px;
+    border-radius: 1000px;
+    padding: 10px 52px;
+
+  }
+
+  .btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 94, 87, 0.3);
+  }
+
+  .rounded {
+    border-radius: 12px !important;
+  }
+}
+
+// pricing Style
+.pricing-container {
+  background-color: #fff;
+}
+
+.pricing-header {
+  position: relative;
+
+  .pricing-title {
+    font-family: "Poppins";
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: 0px;
+    color: #2D3647;
+
+  }
+
+  .underline-img {
+    position: absolute;
+    width: 190px;
+    top: 60px;
+    left: -21px;
+  }
+}
+
+.img-fluid {
+  max-width: 95%;
+  height: auto;
+}
+
+
+.plan-box {
+  display: inline-block;
+  margin-top: -140px;
+}
+
+.price-left-content {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: -0.25px;
+
+}
+
+
+
+.custom-price-card {
+  background: #FFFFFF;
+  width: 675px;
+  height: 500px;
+  border-radius: 20px;
+  padding: 54px 48px;
+  box-shadow: 0px 2px 40px 6px #00000012;
+  margin-top: -60px;
+
+  .price-card-details {
+    padding: 5px 0;
+    border-bottom: 0.5px solid #DADADA;
+
+    .price-details {
+      font-family: "Poppins";
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 40px;
+      letter-spacing: 0px;
+
+    }
+
+    .price-subdetails {
+      font-family: "Montserrat";
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 30px;
+      letter-spacing: -0.25px;
+
+
+    }
+  }
+
+
+  .price {
+    color: #000;
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: 1px;
+    text-align: right;
+    margin: 0 40px;
+
+  }
+
+  .price-member {
+    display: block;
+    font-family: "Montserrat";
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: right;
+
+  }
+
+  button.btn-danger {
+    background: #FF4E45;
+    color: #FFFFFF;
+    border: none;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+    width: 180px;
+    height: 60px;
+    gap: 10px;
+    border-radius: 1000px;
+    padding-top: 10px;
+    padding-right: 52px;
+    padding-bottom: 10px;
+    padding-left: 52px;
+    float: right;
+
+
+
+  }
+}
+
+//buynowmodel model Style
+
+#buyNowModal .modal-content {
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0px 2px 40px 6px #00000012;
+  padding: 30px;
+
+}
+
+#buyNowModal .modal-header {
+  border-bottom: none;
+  padding: 1.5rem;
+}
+
+#buyNowModal .modal-title {
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 25px;
+  letter-spacing: 0px;
+  color: #2D3647;
+
+
+}
+
+#buyNowModal .modal-body {
+  margin: 0 25px;
+  padding: 2rem;
+}
+
+#buyNowModal .modal-footer {
+  border: none;
+}
+
+
+#buyNowModal .form-label {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 28px;
+  color: #2D3647;
+
+}
+
+#buyNowModal .form-control {
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-right: 12px;
+  padding-bottom: 10px;
+  padding-left: 12px;
+  background: #F6F6F6;
+  color: #8F8F8F;
+  text-align: left !important;
+  border: none;
+  height: 40px;
+  width: 90px;
+}
+
+#buyNowModal .form-control::placeholder {
+  color: #8F8F8F;
+  opacity: 1;
+}
+
+#buyNowModal .form-check-input:checked {
+  background-color: #FF4E45 !important;
+  border-color: #FF4E45 !important;
+}
+
+
+
+
+
+#buyNowModal .btn-submit {
+  color: #FFFFFF;
+  border: none;
+  text-align: center;
+  border-radius: 1000px;
+  position: relative;
+  left: 165px;
+  background: #FF4E45;
+  width: 140px;
+  height: 55px;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 18px;
+
+}
+
+#buyNowModal .btn-close {
+  background: transparent;
+  color: #FF4E45 !important;
+  font-size: 20px;
+  font-weight: 900;
+  opacity: 1;
+  box-shadow: none;
+  position: relative;
+  bottom: 40px;
+}
+
+#buyNowModal .btn-close:hover {
+  color: #e04138 !important;
+}
+
+#buyNowModal .btn-close::before {
+  content: "✕";
+  display: block;
+  line-height: 1;
+}
+
+#buyNowModal .btn-close {
+  background-image: none !important;
+}
+
+input.form-control,
+.form-check-input {
+  box-shadow: none !important;
+  outline: none !important;
+  transition: none;
+
+  &:hover,
+  &:focus {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+}
+
+.form-wrapper {
+  margin: 0 auto;
+}
+
+.buyNowModal-text {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 28px;
+  letter-spacing: 0%;
+  color: #2D3647;
+
+}
+
+
+// f&q
+
+.faq-title {
+  position: relative;
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 50px;
+  letter-spacing: 0px;
+  text-align: center;
+  margin-bottom: 75px;
+  color: #2D3647;
+
+  .title-underline {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 45px;
+    width: 185px;
+  }
+}
+
+.custom-tab-buttons .tab-btn {
+  width: 298px;
+  height: 60px;
+  border-radius: 10px;
+  gap: 10px;
+  padding-top: 14px;
+  padding-right: 38px;
+  padding-bottom: 14px;
+  padding-left: 38px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 40px 6px #00000012;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: 0px;
+  text-align: center;
+
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.custom-tab-buttons .tab-btn.active {
+  color: #FF4E45;
+  background-color: white;
+  box-shadow: 0px 2px 40px 6px #00000012;
+
+}
+
+.accordion-button::after {
+  display: none !important;
+}
+
+.accordion-button {
+  position: relative;
+  font-weight: 500;
+
+  .toggle-icon {
+    font-size: 22px;
+    font-weight: bold;
+    color: red;
+    transition: transform 0.2s ease;
+  }
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.accordion-button:focus {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.accordion-button:hover {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.accordion {
+  border: none;
+  --bs-accordion-bg: transparent;
+  background-color: transparent;
+}
+
+.accordion-button {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: -0.25px;
+
+
+}
+
+.accordion-body {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: -0.25px;
+  color: #2D3647;
+
+}
+
+.accordion-item:first-of-type,
+.accordion-item:last-of-type {
+  border-radius: 0 !important;
+}
+
+.accordion-item {
+  border: none;
+  border-bottom: 1px solid #ddd;
+  padding: 15px;
+}
+
+.footer-container {
+  background: #1C2028;
+  height: 362px;
+  top: 6702px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 40px 60px;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-left {
+  flex: 1;
+  min-width: 300px;
+
+}
+
+.logo {
+  margin-bottom: 15px;
+}
+
+.logo-text {
+  color: #f04438;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.footer-description {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: -0.25px;
+  color: #FFFFFF;
+  margin-top: 38px;
+
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 150px;
+  margin: -5px 160px;
+}
+
+.footer-links a {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #f04438;
+}
+
+.footer-social {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.footer-social a {
+  color: #FFFFFF;
+
+}
+
+.footer-social a:hover {
+  color: #f04438;
+}
+
+.footer-bottom {
+  text-align: right;
+  margin-right: 28px;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #aaa;
+}
