@@ -443,7 +443,8 @@ input.form-control {
 
 
 .partner-section {
-  background-color: #f9f9f9;
+  background-color: #f9f9f9 !important;
+  padding-top: 100px;
 
   .partners-title {
     font-family: "Poppins";
@@ -552,6 +553,7 @@ input.form-control {
 // pricing Style
 .pricing-container {
   background-color: #fff;
+  padding-top: 100px;
 }
 
 .pricing-header {
@@ -933,7 +935,16 @@ input.form-control,
   border-bottom: 1px solid #ddd;
   padding: 15px;
 }
+.img-questions{
+  
+    width: 500px;
+    height: 600px;
+    position: absolute;
+    bottom: -50px;
+    left: 17px;
 
+
+}
 .footer-container {
   background: #1C2028;
   height: 362px;
@@ -1002,7 +1013,7 @@ input.form-control,
 
 .footer-social {
   display: flex;
-  gap: 30px;
+  gap: 55px;
   align-items: center;
 }
 
@@ -1017,7 +1028,7 @@ input.form-control,
 
 .footer-bottom {
   text-align: right;
-  margin-right: 28px;
+  // margin-right: 28px;
   margin-top: 40px;
   font-size: 14px;
   color: #aaa;

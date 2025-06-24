@@ -185,7 +185,7 @@
   </section>
   <section id="products" class="products-container py-5">
 
-    <div class="container" style="margin-bottom: 100px;">
+    <div class="container" style="margin-bottom: 100px; margin-top:50px ;">
       <div class="text-center" style="margin-bottom: 60px;">
         <h2 class="products-title  mb-4">Product Description</h2>
         <div class="Product-title-border float-end">
@@ -355,51 +355,8 @@
 
   <section id="partners" class="section">
 
-    <!-- <div class="partner-section py-5 px-3 px-md-5 bg-light">
-       
-      <div class="d-flex align-items-center gap-4 mb-5">
-        <div class="partners-title">
-          <h2 class="mb-0">Partners</h2>
-          <div class="float-end" style="margin-top: -10px; margin-right: 15px;">
-            <img src="../../../assets/images/lineargreen.svg" alt="" style="width: 185px;">
-          </div>
-        </div>
-        <div class="tab-buttons d-flex gap-2">
-          <button class="btn tab-btn active" onclick="showTab('commercial')">Commercial outlets</button>
-          <button class="btn tab-btn" onclick="showTab('workplace')">Workplaces</button>
-        </div>
-      </div>
 
-      <div class="container my-5">
-        <div class="row align-items-center">
-          <div class="col-md-6 text-center Commercial-imgbox">
-            <img src="assets/images/gym.png" class="img-fluid rounded" alt="Commercial charging solution"
-              style="max-height: 400px; width: auto;">
-          </div>
-
-          <div class="col-md-6 ms-4">
-            <h2 class="mb-4 Commercial-content-title">Provide charging convenience to your customers</h2>
-            <p class="mb-4 Commercial-content">
-              As the demand for EV vehicles continues to rise, customers may soon inquire about charging ports at your
-              shop.
-              You can accommodate them by enabling your 5 amp/16 amp socket with our Truswitch, offering charging
-              convenience to your customers.
-              Not only does this provide added convenience, but you can also track the power consumed by your customers
-              and receive direct payment from them.
-            </p>
-            <div class="cta-section">
-              <p class="Commercial-content mb-3">Ready to make the switch?</p>
-              <button class="btn btn-gradient rounded-pill" data-bs-toggle="modal" data-bs-target="#joinModal">Join
-                Truswitch</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-    </div> -->
-
-    <div class="partner-section py-5 px-3 px-md-5 bg-light">
+    <div class="partner-section pb-5 px-3 px-md-5 bg-light">
       <!-- Title and Tabs -->
       <div class="d-flex align-items-center gap-4 mb-5">
         <div class="partners-title">
@@ -483,7 +440,7 @@
 
 
   <section id="pricing" class="section">
-    <div class="pricing-container px-5 pt-5">
+    <div class="pricing-container px-5 ">
       <div class="pricing-header  mb-4">
         <h2 class="pricing-title">Pricing</h2>
         <img src="../../../assets/images/lineargreen.svg" alt="underline" class="underline-img" />
@@ -548,99 +505,122 @@
 
 
   <section id="faq" class="section" style="background-color: #F8F8F8;">
-    <div class="container py-5">
-      <div class="faq-title">
-        <h2>FAQ</h2>
-        <img src="../../../assets/images/lineargreen.svg" alt="" class="title-underline" />
-      </div>
 
-      <!-- Tabs -->
-      <div class="custom-tab-buttons d-flex justify-content-center gap-3 mb-5">
-        <button type="button" class="tab-btn active" onclick="switchTab(this)">Society admin</button>
-        <button type="button" class="tab-btn" onclick="switchTab(this)">Users</button>
-        <button type="button" class="tab-btn" onclick="switchTab(this)">Partners/Employers</button>
-      </div>
+    <div class="container pb-5" style="padding-top:100px;">
+  <div class="faq-title">
+    <h2>FAQ</h2>
+    <img src="../../../assets/images/lineargreen.svg" alt="" class="title-underline" />
+  </div>
 
-      <!-- FAQ List -->
+  <!-- Tabs -->
+  <div class="custom-tab-buttons d-flex justify-content-center gap-3 mb-5">
+    <button type="button" class="tab-btn"
+            [class.active]="activeFaqTab === 'society'"
+            (click)="activeFaqTab = 'society'">Society admin</button>
+    <button type="button" class="tab-btn"
+            [class.active]="activeFaqTab === 'users'"
+            (click)="activeFaqTab = 'users'">Users</button>
+    <button type="button" class="tab-btn"
+            [class.active]="activeFaqTab === 'partners'"
+            (click)="activeFaqTab = 'partners'">Partners/Employers</button>
+  </div>
 
+  <div class="row">
+        <!-- Left: Image Box -->
 
-      <div class="accordion" id="faqAccordion">
-        <!-- Item 1 -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button"
-              data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
-              (click)="toggleAccordion('collapseOne')">
-              Do I need to wait for Truswitch Electrician to Install the device?
-              <span class="toggle-icon ms-auto">{{ isAccordionOpen === 'collapseOne' ? '×' : '+' }}</span>
-            </button>
-          </h2>
-          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-            data-bs-parent="#faqAccordion" (hidden.bs.collapse)="clearAccordion()">
-            <div class="accordion-body">
-              Yes, Truswitch Electrician ensures correct and safe installation of the device.
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 2 -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button"
-              data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
-              (click)="toggleAccordion('collapseTwo')">
-              Can I have more than 1 Truswitch in the Switch/Metal box?
-              <span class="toggle-icon ms-auto">{{ isAccordionOpen === 'collapseTwo' ? '×' : '+' }}</span>
-            </button>
-          </h2>
-          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-            data-bs-parent="#faqAccordion" (hidden.bs.collapse)="clearAccordion()">
-            <div class="accordion-body">
-              Yes, but ensure proper spacing and circuit design for safety and compliance.
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingThree">
-            <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button"
-              data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
-              aria-controls="collapseThree" (click)="toggleAccordion('collapseThree')">
-              Can I install outside the building (in the common area)?
-              <span class="toggle-icon ms-auto">{{ isAccordionOpen === 'collapseThree' ? '×' : '+' }}</span>
-            </button>
-          </h2>
-          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-            data-bs-parent="#faqAccordion" (hidden.bs.collapse)="clearAccordion()">
-            <div class="accordion-body">
-              Installation outdoors is possible with waterproof enclosures and IP-rated protection.
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingFour">
-            <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button"
-              data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
-              aria-controls="collapseFour" (click)="toggleAccordion('collapseFour')">
-              Is MCB mandatory?
-              <span class="toggle-icon ms-auto">{{ isAccordionOpen === 'collapseFour' ? '×' : '+' }}</span>
-            </button>
-          </h2>
-          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-            data-bs-parent="#faqAccordion" (hidden.bs.collapse)="clearAccordion()">
-            <div class="accordion-body">
-              Yes, an MCB ensures protection against overload and short circuits. It’s highly recommended.
-            </div>
-          </div>
+        <div class="col-md-8">
+        <!-- Society Admin FAQ -->
+  <div class="accordion" id="faqAccordion" *ngIf="activeFaqTab === 'society'">
+    <div class="accordion-item" *ngFor="let item of societyFaq; let i = index">
+      <h2 class="accordion-header" [attr.id]="'heading' + i">
+        <button class="accordion-button collapsed d-flex justify-content-between align-items-center"
+                type="button"
+                data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#collapse' + i"
+                aria-expanded="false"
+                [attr.aria-controls]="'collapse' + i"
+                (click)="toggleAccordion('collapse' + i)">
+          {{ item.question }}
+          <span class="toggle-icon ms-auto">{{ isAccordionOpen === 'collapse' + i ? '×' : '+' }}</span>
+        </button>
+      </h2>
+      <div [id]="'collapse' + i" class="accordion-collapse collapse"
+           [attr.aria-labelledby]="'heading' + i"
+           data-bs-parent="#faqAccordion"
+           (hidden.bs.collapse)="clearAccordion()">
+        <div class="accordion-body">
+          {{ item.answer }}
         </div>
       </div>
-
-
-
     </div>
+  </div>
+
+  <!-- Users FAQ -->
+  <div class="accordion" id="faqAccordionUsers" *ngIf="activeFaqTab === 'users'">
+    <div class="accordion-item" *ngFor="let item of usersFaq; let i = index">
+      <h2 class="accordion-header" [attr.id]="'uheading' + i">
+        <button class="accordion-button collapsed d-flex justify-content-between align-items-center"
+                type="button"
+                data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#ucollapse' + i"
+                aria-expanded="false"
+                [attr.aria-controls]="'ucollapse' + i"
+                (click)="toggleAccordion('ucollapse' + i)">
+          {{ item.question }}
+          <span class="toggle-icon ms-auto">{{ isAccordionOpen === 'ucollapse' + i ? '×' : '+' }}</span>
+        </button>
+      </h2>
+      <div [id]="'ucollapse' + i" class="accordion-collapse collapse"
+           [attr.aria-labelledby]="'uheading' + i"
+           data-bs-parent="#faqAccordionUsers"
+           (hidden.bs.collapse)="clearAccordion()">
+        <div class="accordion-body">
+          {{ item.answer }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Partners FAQ -->
+  <div class="accordion" id="faqAccordionPartners" *ngIf="activeFaqTab === 'partners'">
+    <div class="accordion-item" *ngFor="let item of partnersFaq; let i = index">
+      <h2 class="accordion-header" [attr.id]="'pheading' + i">
+        <button class="accordion-button collapsed d-flex justify-content-between align-items-center"
+                type="button"
+                data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#pcollapse' + i"
+                aria-expanded="false"
+                [attr.aria-controls]="'pcollapse' + i"
+                (click)="toggleAccordion('pcollapse' + i)">
+          {{ item.question }}
+          <span class="toggle-icon ms-auto">{{ isAccordionOpen === 'pcollapse' + i ? '×' : '+' }}</span>
+        </button>
+      </h2>
+      <div [id]="'pcollapse' + i" class="accordion-collapse collapse"
+           [attr.aria-labelledby]="'pheading' + i"
+           data-bs-parent="#faqAccordionPartners"
+           (hidden.bs.collapse)="clearAccordion()">
+        <div class="accordion-body">
+          {{ item.answer }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+        </div>
+        <!-- Right: Feature List -->
+
+        <div class="col-md-4 mb-4 mb-md-0">
+          <div class="image-box1">
+            <img src="../../../assets/images/frequencyquestions.png" alt="Bike" class="img-questions" />
+          </div>
+        </div>
+
+
+      </div>
+
+
+</div>
 
   </section>
 
@@ -662,10 +642,10 @@
           </p>
         </div>
         <div class="footer-links">
-          <a href="#">Products</a>
-          <a href="#">Partners</a>
-          <a href="#">Pricing</a>
-          <a href="#">FAQ</a>
+                <a routerLink="" fragment="products">Products</a>
+                <a routerLink="" fragment="partners">Partners</a>
+                <a routerLink="" fragment="pricing">Pricing</a>
+                <a routerLink="" fragment="faq">FAQ</a>
         </div>
       </div>
 
@@ -675,11 +655,11 @@
       <!-- Right: Social Icons -->
       <div class="footer-social">
         <!-- Font Awesome Version -->
-        <a href="#"><i class="fab fa-x-twitter" style="width: 33px;height: 34px;"></i></a>
-        <a href="#"><i class="fab fa-instagram" style="width: 34px;height: 34px;"></i></a>
-        <a href="#"><i class="fab fa-facebook-f" style="width: 17.5px;height: 34px;"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in" style="width: 34px;height: 34px;"></i></a>
-        <a href="#"><i class="fab fa-youtube" style="width: 48px;height: 34px;"></i></a>
+        <a href="javascript:;"><img src="../../../assets/images/XLogo.svg" alt="" srcset=""> </a>
+        <a href="javascript:;"><img src="../../../assets/images/instaLogo.svg" alt="" srcset=""> </a>
+        <a href="javascript:;"><img src="../../../assets/images/FBLogo.svg" alt="" srcset=""> </a>
+        <a href="javascript:;"><img src="../../../assets/images/LDLogo.svg" alt="" srcset=""> </a>
+        <a href="javascript:;"><img src="../../../assets/images/YTLogo.svg" alt="" srcset=""> </a>
 
       </div>
     </div>
