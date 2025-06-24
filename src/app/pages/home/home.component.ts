@@ -14,16 +14,17 @@ selectedTab: 'commercial' | 'workplace' = 'commercial';
     this.selectedTab = tab;
   }
 
-   isAccordionOpen: string | null = null;
+   isAccordionOpen: string = '';
 
-  toggleAccordion(id: string) {
-    // Toggle logic: if clicked again, close it
-    this.isAccordionOpen = this.isAccordionOpen === id ? null : id;
-  }
+  // toggleAccordion(id: string) {
+  //   // Toggle logic: if clicked again, close it
+  //   this.isAccordionOpen = this.isAccordionOpen === id ? null : id;
+  // }
 
-  clearAccordion() {
-    this.isAccordionOpen = null;
-  }
+  toggleAccordion(id: string): void {
+  this.isAccordionOpen = this.isAccordionOpen === id ? '' : id;
+}
+
 //
 
 activeFaqTab: string = 'society';

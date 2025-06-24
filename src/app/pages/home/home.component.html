@@ -15,7 +15,8 @@
 
   <!-- Hero Carousel -->
   <section class="hero">
-    <div id="truswitchCarousel" class="carousel slide fixed-height-carousel" data-bs-ride="carousel">
+    <div id="truswitchCarousel" class="carousel slide fixed-height-carousel" data-bs-ride="carousel"
+      data-bs-pause="false">
       <div class="carousel-inner">
         <!-- Slide 1 -->
         <div class="carousel-item active">
@@ -200,7 +201,7 @@
         Any qualified electrician can install it, and you can set it up in minutes with our easy-to-follow guide.
       </p>
 
-      <div class="row align-items-center">
+      <div class="row px-5">
         <!-- Left: Image Box -->
         <div class="col-md-6 mb-4 mb-md-0">
           <div class="image-box">
@@ -423,10 +424,10 @@
               only promote green mobility and sustainability but also enhance employee satisfaction — all with a simple,
               low-investment solution that can be deployed in minutes.
 
-              Make your workplace EV-ready in minutes — TruSwitch makes it easy.
+
             </p>
             <div class="cta-section">
-              <p class="Commercial-content mb-3">Future-proof your workplace today.</p>
+              <p class="Commercial-content mb-3">Make your workplace EV-ready in minutes — TruSwitch makes it easy.</p>
               <button class="btn btn-gradient rounded-pill" data-bs-toggle="modal" data-bs-target="#joinModal">
                 Join Truswitch
               </button>
@@ -507,105 +508,103 @@
   <section id="faq" class="section" style="background-color: #F8F8F8;">
 
     <div class="container pb-5" style="padding-top:100px;">
-  <div class="faq-title">
-    <h2>FAQ</h2>
-    <img src="../../../assets/images/lineargreen.svg" alt="" class="title-underline" />
-  </div>
+      <div class="faq-title">
+        <h2>FAQ</h2>
+        <img src="../../../assets/images/lineargreen.svg" alt="" class="title-underline" />
+      </div>
 
-  <!-- Tabs -->
-  <div class="custom-tab-buttons d-flex justify-content-center gap-3 mb-5">
-    <button type="button" class="tab-btn"
-            [class.active]="activeFaqTab === 'society'"
-            (click)="activeFaqTab = 'society'">Society admin</button>
-    <button type="button" class="tab-btn"
-            [class.active]="activeFaqTab === 'users'"
-            (click)="activeFaqTab = 'users'">Users</button>
-    <button type="button" class="tab-btn"
-            [class.active]="activeFaqTab === 'partners'"
-            (click)="activeFaqTab = 'partners'">Partners/Employers</button>
-  </div>
+      <!-- Tabs -->
+      <div class="custom-tab-buttons d-flex justify-content-center gap-3 mb-5">
+        <button type="button" class="tab-btn" [class.active]="activeFaqTab === 'society'"
+          (click)="activeFaqTab = 'society'">Society admin</button>
+        <button type="button" class="tab-btn" [class.active]="activeFaqTab === 'users'"
+          (click)="activeFaqTab = 'users'">Users</button>
+        <button type="button" class="tab-btn" [class.active]="activeFaqTab === 'partners'"
+          (click)="activeFaqTab = 'partners'">Partners/Employers</button>
+      </div>
 
-  <div class="row">
+      <div class="row">
         <!-- Left: Image Box -->
 
         <div class="col-md-8">
-        <!-- Society Admin FAQ -->
-  <div class="accordion" id="faqAccordion" *ngIf="activeFaqTab === 'society'">
-    <div class="accordion-item" *ngFor="let item of societyFaq; let i = index">
-      <h2 class="accordion-header" [attr.id]="'heading' + i">
-        <button class="accordion-button collapsed d-flex justify-content-between align-items-center"
-                type="button"
-                data-bs-toggle="collapse"
-                [attr.data-bs-target]="'#collapse' + i"
-                aria-expanded="false"
-                [attr.aria-controls]="'collapse' + i"
-                (click)="toggleAccordion('collapse' + i)">
-          {{ item.question }}
-          <span class="toggle-icon ms-auto">{{ isAccordionOpen === 'collapse' + i ? '×' : '+' }}</span>
-        </button>
-      </h2>
-      <div [id]="'collapse' + i" class="accordion-collapse collapse"
-           [attr.aria-labelledby]="'heading' + i"
-           data-bs-parent="#faqAccordion"
-           (hidden.bs.collapse)="clearAccordion()">
-        <div class="accordion-body">
-          {{ item.answer }}
-        </div>
-      </div>
-    </div>
-  </div>
+          <!-- Society Admin FAQ -->
+          <div class="accordion" id="faqAccordion" *ngIf="activeFaqTab === 'society'">
+            <div class="accordion-item" *ngFor="let item of societyFaq; let i = index">
+              <h2 class="accordion-header" [attr.id]="'heading' + i">
+             
+                <button class="accordion-button collapsed d-flex justify-content-between align-items-center"
+                  type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" aria-expanded="false"
+                  [attr.aria-controls]="'collapse' + i" (click)="toggleAccordion('collapse' + i)">
+                  {{ item.question }}
 
-  <!-- Users FAQ -->
-  <div class="accordion" id="faqAccordionUsers" *ngIf="activeFaqTab === 'users'">
-    <div class="accordion-item" *ngFor="let item of usersFaq; let i = index">
-      <h2 class="accordion-header" [attr.id]="'uheading' + i">
-        <button class="accordion-button collapsed d-flex justify-content-between align-items-center"
-                type="button"
-                data-bs-toggle="collapse"
-                [attr.data-bs-target]="'#ucollapse' + i"
-                aria-expanded="false"
-                [attr.aria-controls]="'ucollapse' + i"
-                (click)="toggleAccordion('ucollapse' + i)">
-          {{ item.question }}
-          <span class="toggle-icon ms-auto">{{ isAccordionOpen === 'ucollapse' + i ? '×' : '+' }}</span>
-        </button>
-      </h2>
-      <div [id]="'ucollapse' + i" class="accordion-collapse collapse"
-           [attr.aria-labelledby]="'uheading' + i"
-           data-bs-parent="#faqAccordionUsers"
-           (hidden.bs.collapse)="clearAccordion()">
-        <div class="accordion-body">
-          {{ item.answer }}
-        </div>
-      </div>
-    </div>
-  </div>
+                  <span class="toggle-icon ms-auto">
+                    <img [src]="isAccordionOpen === 'collapse' + i 
+              ? '../../../assets/images/wronglogo.svg' 
+              : '../../../assets/images/pluslogo.svg'" alt="Toggle Icon" width="16" height="16">
+                  </span>
+                </button>
 
-  <!-- Partners FAQ -->
-  <div class="accordion" id="faqAccordionPartners" *ngIf="activeFaqTab === 'partners'">
-    <div class="accordion-item" *ngFor="let item of partnersFaq; let i = index">
-      <h2 class="accordion-header" [attr.id]="'pheading' + i">
-        <button class="accordion-button collapsed d-flex justify-content-between align-items-center"
-                type="button"
-                data-bs-toggle="collapse"
-                [attr.data-bs-target]="'#pcollapse' + i"
-                aria-expanded="false"
-                [attr.aria-controls]="'pcollapse' + i"
-                (click)="toggleAccordion('pcollapse' + i)">
-          {{ item.question }}
-          <span class="toggle-icon ms-auto">{{ isAccordionOpen === 'pcollapse' + i ? '×' : '+' }}</span>
-        </button>
-      </h2>
-      <div [id]="'pcollapse' + i" class="accordion-collapse collapse"
-           [attr.aria-labelledby]="'pheading' + i"
-           data-bs-parent="#faqAccordionPartners"
-           (hidden.bs.collapse)="clearAccordion()">
-        <div class="accordion-body">
-          {{ item.answer }}
-        </div>
-      </div>
-    </div>
-  </div>
+              </h2>
+              <div [id]="'collapse' + i" class="accordion-collapse collapse" [attr.aria-labelledby]="'heading' + i"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  {{ item.answer }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Users FAQ -->
+          <div class="accordion" id="faqAccordionUsers" *ngIf="activeFaqTab === 'users'">
+            <div class="accordion-item" *ngFor="let item of usersFaq; let i = index">
+              <h2 class="accordion-header" [attr.id]="'uheading' + i">
+                <button class="accordion-button collapsed d-flex justify-content-between align-items-center"
+                  type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#ucollapse' + i" aria-expanded="false"
+                  [attr.aria-controls]="'ucollapse' + i" (click)="toggleAccordion('ucollapse' + i)">
+                  {{ item.question }}
+                  <!-- <span class="toggle-icon ms-auto">{{ isAccordionOpen === 'ucollapse' + i ? '×' : '+' }}</span> -->
+
+                  <span class="toggle-icon ms-auto">
+                    <img
+                      [src]="isAccordionOpen === 'ucollapse' + i ? '../../../assets/images/wronglogo.svg' : '../../../assets/images/pluslogo.svg'"
+                      alt="Toggle Icon" width="16" height="16">
+                  </span>
+
+                </button>
+              </h2>
+              <div [id]="'ucollapse' + i" class="accordion-collapse collapse" [attr.aria-labelledby]="'uheading' + i"
+                data-bs-parent="#faqAccordionUsers">
+                <div class="accordion-body">
+                  {{ item.answer }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Partners FAQ -->
+          <div class="accordion" id="faqAccordionPartners" *ngIf="activeFaqTab === 'partners'">
+            <div class="accordion-item" *ngFor="let item of partnersFaq; let i = index">
+              <h2 class="accordion-header" [attr.id]="'pheading' + i">
+                <button class="accordion-button collapsed d-flex justify-content-between align-items-center"
+                  type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#pcollapse' + i" aria-expanded="false"
+                  [attr.aria-controls]="'pcollapse' + i" (click)="toggleAccordion('pcollapse' + i)">
+                  {{ item.question }}
+                  <!-- <span class="toggle-icon ms-auto">{{ isAccordionOpen === 'pcollapse' + i ? '×' : '+' }}</span> -->
+                  <span class="toggle-icon ms-auto">
+                    <img
+                      [src]="isAccordionOpen === 'pcollapse' + i ? '../../../assets/images/wronglogo.svg' : '../../../assets/images/pluslogo.svg'"
+                      alt="Toggle Icon" width="16" height="16">
+                  </span>
+                </button>
+              </h2>
+              <div [id]="'pcollapse' + i" class="accordion-collapse collapse" [attr.aria-labelledby]="'pheading' + i"
+                data-bs-parent="#faqAccordionPartners">
+                <div class="accordion-body">
+                  {{ item.answer }}
+                </div>
+              </div>
+            </div>
+          </div>
 
         </div>
         <!-- Right: Feature List -->
@@ -620,13 +619,12 @@
       </div>
 
 
-</div>
+    </div>
 
   </section>
 
   <footer class="footer-container">
     <div class="footer-content">
-      <!-- Left: Logo & Description -->
       <div class="footer-left d-flex">
         <div>
           <div class="logo">
@@ -642,29 +640,30 @@
           </p>
         </div>
         <div class="footer-links">
-                <a routerLink="" fragment="products">Products</a>
-                <a routerLink="" fragment="partners">Partners</a>
-                <a routerLink="" fragment="pricing">Pricing</a>
-                <a routerLink="" fragment="faq">FAQ</a>
+          <a routerLink="" fragment="products">Products</a>
+          <a routerLink="" fragment="partners">Partners</a>
+          <a routerLink="" fragment="pricing">Pricing</a>
+          <a routerLink="" fragment="faq">FAQ</a>
         </div>
       </div>
 
-      <!-- Center: Navigation Links -->
 
 
-      <!-- Right: Social Icons -->
       <div class="footer-social">
-        <!-- Font Awesome Version -->
-        <a href="javascript:;"><img src="../../../assets/images/XLogo.svg" alt="" srcset=""> </a>
-        <a href="javascript:;"><img src="../../../assets/images/instaLogo.svg" alt="" srcset=""> </a>
-        <a href="javascript:;"><img src="../../../assets/images/FBLogo.svg" alt="" srcset=""> </a>
-        <a href="javascript:;"><img src="../../../assets/images/LDLogo.svg" alt="" srcset=""> </a>
-        <a href="javascript:;"><img src="../../../assets/images/YTLogo.svg" alt="" srcset=""> </a>
+        <a href="javascript:;"><img src="../../../assets/images/XLogo.svg" alt="" srcset=""
+            style="width: 33px;height: 34px;"> </a>
+        <a href="javascript:;"><img src="../../../assets/images/instaLogo.svg" alt="" srcset=""
+            style="width: 34px;height: 34px;"> </a>
+        <a href="javascript:;"><img src="../../../assets/images/FBLogo.svg" alt="" srcset=""
+            style="width: 17px;height: 34px;"> </a>
+        <a href="javascript:;"><img src="../../../assets/images/LDLogo.svg" alt="" srcset=""
+            style="width: 34px;height: 34px;"> </a>
+        <a href="javascript:;"><img src="../../../assets/images/YTLogo.svg" alt="" srcset=""
+            style="width: 48px;height: 34px;"> </a>
 
       </div>
     </div>
 
-    <!-- Bottom: Copyright -->
     <div class="footer-bottom">
       © Truswitch 2024
     </div>

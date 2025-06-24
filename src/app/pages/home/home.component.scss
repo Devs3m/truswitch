@@ -259,9 +259,7 @@ $text-color: #666;
   bottom: 20px;
 }
 
-#joinModal .btn-close:hover {
-  color: #e04138 !important;
-}
+
 
 #joinModal .btn-close::before {
   content: "✕";
@@ -320,7 +318,7 @@ input.form-control {
   background: #ffffff;
   padding: 30px;
   position: relative;
-  height: 486px;
+  height: 380px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -331,15 +329,15 @@ input.form-control {
   width: 700px;
   height: 700px;
   position: absolute;
-  right: 250px;
-  bottom: -50px;
+  right: 185px;
+  bottom: -60px;
 }
 
 .img-bike {
   width: 600px;
   height: 600px;
   position: absolute;
-  bottom: 75px;
+  bottom: 65px;
   left: 240px;
 }
 
@@ -541,8 +539,7 @@ input.form-control {
   }
 
   .btn-gradient:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 94, 87, 0.3);
+    // transform: translateY(-2px);
   }
 
   .rounded {
@@ -739,11 +736,45 @@ input.form-control {
   opacity: 1;
 }
 
-#buyNowModal .form-check-input:checked {
-  background-color: #FF4E45 !important;
-  border-color: #FF4E45 !important;
+// #buyNowModal .form-check-input:checked {
+//   background-color: #FF4E45 !important;
+//   border-color: #FF4E45 !important;
+// }
+
+#buyNowModal .form-check-input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #8F8F8F; 
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: border 0.2s ease;
+  background-color: #fff;
 }
 
+#buyNowModal .form-check-input[type="radio"]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #FF4E45; 
+  transition: transform 0.2s ease;
+}
+
+#buyNowModal .form-check-input[type="radio"]:checked {
+  border-color: #FF4E45; /* active border */
+}
+
+#buyNowModal .form-check-input[type="radio"]:checked::before {
+  transform: translate(-50%, -50%) scale(1);
+}
 
 
 
@@ -877,9 +908,6 @@ input.form-control,
   font-weight: 500;
 
   .toggle-icon {
-    font-size: 22px;
-    font-weight: bold;
-    color: red;
     transition: transform 0.2s ease;
   }
 }
@@ -951,7 +979,7 @@ input.form-control,
   top: 6702px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  padding: 40px 60px;
+  padding: 62px 110px;
   width: 100%;
 }
 
@@ -992,7 +1020,7 @@ input.form-control,
 .footer-links {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 25px;
   min-width: 150px;
   margin: -5px 160px;
 }
