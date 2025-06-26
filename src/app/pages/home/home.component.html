@@ -4,6 +4,7 @@
     <div class="navbar-left">
       <img src="assets/images/logo.svg" alt="Truswitch Logo" class="logo-img" />
       <img src="assets/images/logotext.svg" alt="Truswitch LogoText" class="logotext-img" />
+      <span class="ms-3 mt-2" style="color: #FF4E45;">Launching Soon!</span>
     </div>
     <nav class="navbar-right">
       <a routerLink="" fragment="products">Products</a>
@@ -15,14 +16,13 @@
 
   <!-- Hero Carousel -->
   <section class="hero">
-    <div id="truswitchCarousel" class="carousel slide fixed-height-carousel" data-bs-ride="carousel"
-      data-bs-pause="false">
+    <div id="truswitchCarousel" class="carousel slide fixed-height-carousel " data-bs-ride="carousel">
       <div class="carousel-inner">
         <!-- Slide 1 -->
         <div class="carousel-item active">
           <div class="container ">
             <div class="row align-items-center justify-content-center h-100">
-              <div class="col-md-6">
+              <div class="col-md-6 order-1 order-md-0">
                 <div class="hero-content">
                   <p class="lead-header">Thinking about getting an electric bike but worried about charging?</p>
                   <div class="float-end" style="margin-top: -10px; margin-right: 15px;">
@@ -40,7 +40,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-6  align-items-center">
+              <div class="col-md-6  align-items-center order-0 order-md-1 ">
                 <img src="../../../assets/images/slider.png" class="d-block w-75" alt="EV Charging Solution">
               </div>
             </div>
@@ -51,7 +51,7 @@
         <div class="carousel-item">
           <div class="container h-100">
             <div class="row align-items-center h-100">
-              <div class="col-md-6">
+              <div class="col-md-6 order-1 order-md-0">
                 <div class="hero-content">
                   <p class="lead-header">Concerned about costly rewiring or getting approval from your Society/Apartment
                     Association?</p>
@@ -69,7 +69,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-6  align-items-center">
+              <div class="col-md-6  align-items-center order-0 order-md-1">
                 <img src="../../../assets/images/Slider2.png" class="d-block w-75" alt="EV Charging Solution">
 
               </div>
@@ -81,7 +81,7 @@
         <div class="carousel-item">
           <div class="container h-100">
             <div class="row align-items-center h-100">
-              <div class="col-md-6">
+              <div class="col-md-6 order-1 order-md-0">
                 <div class="hero-content">
                   <p class="lead-header">Struggling with Society restrictions on your electric two-wheeler dreams?</p>
                   <p class="lead">
@@ -97,7 +97,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-6 align-items-center">
+              <div class="col-md-6 align-items-center order-0 order-md-1">
                 <img src="../../../assets/images/Slider3.png" class="d-block w-75" alt="EV Charging Solution">
 
               </div>
@@ -109,7 +109,7 @@
         <div class="carousel-item">
           <div class="container h-100">
             <div class="row align-items-center h-100">
-              <div class="col-md-6">
+              <div class="col-md-6 order-1 order-md-0">
                 <div class="hero-content">
                   <p class="lead-header">There are no additional charges on power usage; you pay directly to your
                     Society/Association</p>
@@ -126,7 +126,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-6 align-items-center">
+              <div class="col-md-6 align-items-center order-0 order-md-1">
                 <img src="../../../assets/images/Slider4.png" class="d-block w-75" alt="EV Charging Solution">
 
               </div>
@@ -138,7 +138,7 @@
         <div class="carousel-item">
           <div class="container h-100">
             <div class="row align-items-center h-100">
-              <div class="col-md-6">
+              <div class="col-md-6 order-1 order-md-0">
                 <div class="hero-content">
                   <p class="lead-header">Safely Embrace EVs: Eliminate Wire Hazards in Your Parking Lot</p>
 
@@ -154,7 +154,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-6 align-items-center">
+              <div class="col-md-6 align-items-center order-0 order-md-1">
                 <img src="../../../assets/images/Slider5.png" class="d-block w-75" alt="EV Charging Solution">
 
               </div>
@@ -215,9 +215,9 @@
           <ul class="list-unstyled feature-list align-items-start">
             <li class="d-flex align-items-center mb-3"><i class="fa-solid fa-circle-check  me-2"
                 style="color: #06D6A0;"></i> Ensures high safety levels</li>
-            <li class="d-flex align-items-center mb-3"><i class="fa-solid fa-circle-check me-2"
+            <!-- <li class="d-flex align-items-center mb-3"><i class="fa-solid fa-circle-check me-2"
                 style="color: #06D6A0;"></i> Certified by BIS (Bureau of Indian Standards)
-            </li>
+            </li> -->
             <li class="d-flex align-items-center mb-3"><i class="fa-solid fa-circle-check me-2"
                 style="color: #06D6A0; margin-top: -30px;"></i> Automatically shuts off power during high
               voltage/temperature/current situations</li>
@@ -242,31 +242,36 @@
     <div class="bg-dark py-5 mb-5">
       <h5 class="metrics-heading">Product Metrics</h5>
       <div class="container-fluid">
-        <div class="row text-center justify-content-center">
+        <div class="row text-start align-items-center">
           <div class="col-md-2 col-6 mb-4">
-            <h3 class="metric-number">2000+</h3>
-            <p class="metric-label">Truswitches<br>Installed</p>
+            <!-- <h3 class="metric-number">2000+</h3> -->
+            <h3 class="metric-number">0</h3>
+            <p class="metric-label text-start">Truswitches<br>Installed</p>
           </div>
           <div class="col-md-2 col-6 mb-4">
-            <h3 class="metric-number">20+</h3>
-            <p class="metric-label" style="margin-left: 68px;">Societies<br>Supported</p>
+            <h3 class="metric-number">0</h3>
+            <p class="metric-label text-start">Societies<br>Supported</p>
           </div>
           <div class="col-md-2 col-6 mb-4">
-            <h3 class="metric-number">8000+</h3>
-            <p class="metric-label">Users<br>Supported</p>
+            <h3 class="metric-number">0</h3>
+            <p class="metric-label text-start">Users<br>Supported</p>
           </div>
           <div class="col-md-2 col-6 mb-4">
-            <h3 class="metric-number">16,000+</h3>
-            <p class="metric-label ms-4">Sessions<br>Completed</p>
+            <h3 class="metric-number">0</h3>
+            <p class="metric-label text-start">Sessions<br>Completed</p>
           </div>
           <div class="col-md-2 col-6 mb-4">
-            <h3 class="metric-number">7000</h3>
-            <p class="metric-label" style="margin-left: 57px;">Kwh<br>Output</p>
+            <h3 class="metric-number">0</h3>
+            <p class="metric-label text-start">Kwh<br>Output</p>
           </div>
           <div class="col-md-2 col-6 mb-4">
-            <h3 class="metric-number">12</h3>
-            <p class="metric-label" style="margin-left: 92px;">City<br>Presence</p>
+            <h3 class="metric-number">0</h3>
+            <p class="metric-label text-start">City<br>Presence</p>
+
           </div>
+          <b class="text-end" style="font-family: 'poppins'; color: rgba(17, 215, 164, 0.95);font-size: large;">will be
+            updated soon</b>
+
         </div>
       </div>
     </div>
@@ -332,21 +337,25 @@
     <div class="bg-dark py-5">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-md-3 col-12 mb-4 text-md-start text-center">
-            <h5 class="metrics-heading" style="margin-left: 0;">App Metrics</h5>
+          <div class="col-md-3 col-12 mb-4 text-start">
+            <h5 class="metrics-heading">App Metrics</h5>
           </div>
-          <div class="col-md-3 col-4 mb-4 text-center">
-            <h3 class="Appmetric-number">4000+</h3>
+          <div class="col-md-3 col-4 mb-4 text-s">
+            <h3 class="Appmetric-number">0</h3>
             <p class="Appmetric-label">Android<br>Downloads</p>
           </div>
-          <div class="col-md-3 col-4 mb-4 text-center">
-            <h3 class="Appmetric-number">2000+</h3>
-            <p class="Appmetric-label">IOS<br>Downloads</p>
+          <div class="col-md-3 col-4 mb-4 text-start">
+            <h3 class="Appmetric-number">0</h3>
+            <p class="Appmetric-label ms-1">IOS<br>Downloads</p>
           </div>
-          <div class="col-md-3 col-4 mb-4 text-center">
-            <h3 class="Appmetric-number">4.2</h3>
+          <div class="col-md-3 col-4 mb-4 text-start">
+            <h3 class="Appmetric-number">0</h3>
             <p class="Appmetric-label">Average<br>Rating</p>
           </div>
+          <b class="text-end"
+            style="font-family: 'poppins'; color: rgba(17, 215, 164, 0.95);font-size: large;margin-left: -113px;">will
+            be
+            updated soon</b>
         </div>
       </div>
     </div>
@@ -397,7 +406,7 @@
               consumed by your customers and receive direct payment from them.
             </p>
             <div class="cta-section">
-              <p class="Commercial-content mb-3">Ready to make the switch?</p>
+              <p class="Commercial-content fw-semibold  mb-3">Ready to make the switch?</p>
               <button class="btn btn-gradient rounded-pill" data-bs-toggle="modal" data-bs-target="#joinModal">
                 Join Truswitch
               </button>
@@ -406,28 +415,20 @@
         </div>
 
         <div class="row align-items-center" *ngIf="selectedTab === 'workplace'">
-          <div class="col-md-6 text-center Commercial-imgbox" style="height: 800px;">
+          <div class="col-md-6 text-center Commercial-imgbox" style="height: 415px;">
             <img src="../../../assets/images/office-pana.png" class="img-fluid rounded"
-              alt="Workplace charging solution" style="height: 600px; width: auto" />
+              alt="Workplace charging solution" style="height: 450px; width: auto" />
           </div>
 
           <div class="col-md-6 ms-4">
             <h2 class="mb-4 Commercial-content-title">Empower your workplace </h2>
             <p class="mb-4 Commercial-content">
-              Empower Your Employees with Convenient EV Charging at Work
-              As electric two-wheelers continue to gain popularity, employees are increasingly expecting accessible
-              charging options at their workplace. With TruSwitch, employers can easily convert existing 5A or 16A
-              sockets into smart EV charging points — without the need for costly rewiring or infrastructure changes.
-              This allows organizations to offer convenient charging in their parking areas while tracking individual
-              power consumption through the TruSwitch mobile app. Employees can pay directly for the electricity they
-              use, making the system both transparent and hassle-free. By enabling EV charging at work, companies not
-              only promote green mobility and sustainability but also enhance employee satisfaction — all with a simple,
-              low-investment solution that can be deployed in minutes.
-
-
+              With TruSwitch, employees can charge their vehicles at work, pay directly via the app, and view usage
+              transparently. Employers gain full control and visibility over energy usage with zero operational hassle.
+              It’s a low-cost, high-impact way to boost employee satisfaction and support green mobility.
             </p>
             <div class="cta-section">
-              <p class="Commercial-content mb-3">Make your workplace EV-ready in minutes — TruSwitch makes it easy.</p>
+              <p class="Commercial-content fw-semibold mb-3">Make your workplace EV-ready in minutes </p>
               <button class="btn btn-gradient rounded-pill" data-bs-toggle="modal" data-bs-target="#joinModal">
                 Join Truswitch
               </button>
@@ -472,7 +473,7 @@
                 <p class="price-details m-0 ">Device Cost</p>
                 <p class="price-subdetails mb-3">One-Time</p>
               </div>
-              <p class="price">₹ 999</p>
+              <p class="price">₹ 1299</p>
             </div>
             <div class="price-card-details d-flex justify-content-between mb-3">
               <div>
@@ -484,9 +485,9 @@
             <div class="price-card-details d-flex justify-content-between">
               <div>
                 <p class="m-0 price-details">Subscription Cost</p>
-                <p class="price-subdetails">Annual</p>
+                <p class="price-subdetails">paid annually</p>
               </div>
-              <p class="price">₹ 299 <span class="price-member">/user</span></p>
+              <p class="price">₹ 599 <span class="price-member">/user</span></p>
             </div>
 
             <div class="mt-4">
@@ -531,7 +532,7 @@
           <div class="accordion" id="faqAccordion" *ngIf="activeFaqTab === 'society'">
             <div class="accordion-item" *ngFor="let item of societyFaq; let i = index">
               <h2 class="accordion-header" [attr.id]="'heading' + i">
-             
+
                 <button class="accordion-button collapsed d-flex justify-content-between align-items-center"
                   type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" aria-expanded="false"
                   [attr.aria-controls]="'collapse' + i" (click)="toggleAccordion('collapse' + i)">
@@ -540,7 +541,7 @@
                   <span class="toggle-icon ms-auto">
                     <img [src]="isAccordionOpen === 'collapse' + i 
               ? '../../../assets/images/wronglogo.svg' 
-              : '../../../assets/images/pluslogo.svg'" alt="Toggle Icon" width="16" height="16">
+              : '../../../assets/images/pluslogo.svg'" alt="Toggle Icon" width="18" height="18">
                   </span>
                 </button>
 
@@ -567,7 +568,7 @@
                   <span class="toggle-icon ms-auto">
                     <img
                       [src]="isAccordionOpen === 'ucollapse' + i ? '../../../assets/images/wronglogo.svg' : '../../../assets/images/pluslogo.svg'"
-                      alt="Toggle Icon" width="16" height="16">
+                      alt="Toggle Icon" width="18" height="18">
                   </span>
 
                 </button>
@@ -593,7 +594,7 @@
                   <span class="toggle-icon ms-auto">
                     <img
                       [src]="isAccordionOpen === 'pcollapse' + i ? '../../../assets/images/wronglogo.svg' : '../../../assets/images/pluslogo.svg'"
-                      alt="Toggle Icon" width="16" height="16">
+                      alt="Toggle Icon" width="18" height="18">
                   </span>
                 </button>
               </h2>
@@ -626,19 +627,29 @@
   <footer class="footer-container">
     <div class="footer-content">
       <div class="footer-left d-flex">
+
         <div>
-          <div class="logo">
+          <div class="logo d-flex align-items-center mb-2">
             <img src="assets/images/logo.svg" alt="Truswitch Logo" class="logo-img" />
-            <img src="assets/images/logotext.svg" alt="Truswitch LogoText" class="logotext-img "
-              style="width: 192.73px;height: 33.44px; margin-left: 15px;" />
+            <img src="assets/images/logotext.svg" alt="Truswitch LogoText" class="logotext-img"
+              style="width: 192.73px; height: 33.44px; margin-left: 15px;" />
           </div>
-          <p class="footer-description">
-            Lorem ipsum dolor sit amet,<br />
-            consectetur adipiscing elit,<br />
-            sed do eiusmod tempor<br />
-            incididunt ut labore et dolore
+
+          <p class="footer-description mb-2" style="color: #FFFFFF;">
+            Smart EV Charging. One Switch at a Time.
+          </p>
+
+          <p style="font-weight: bold; color: #FFFFFF; margin-bottom: 0;">
+            Truswitch Station Private Limited
+          </p>
+
+
+          <p style="color: white;">
+            Registered Office: No 5/17,13th Avenue, Harrington Rd, GF6, Chetpet, Chennai, TN 600031, India
+
           </p>
         </div>
+
         <div class="footer-links">
           <a routerLink="" fragment="products">Products</a>
           <a routerLink="" fragment="partners">Partners</a>
@@ -683,58 +694,105 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
           <div class="row">
             <div class="col-md-4">
               <div class="mb-3">
-                <label class="form-label">Name</label>
-                <input type="text" class="form-control" placeholder="Name">
+                <label class="form-label required-asterisk">Name</label>
+                <input type="text" class="form-control" placeholder="Name" formControlName="name">
+                <div *ngIf="name?.invalid && (name?.touched || name?.dirty)" class="text-danger">
+                  <small *ngIf="name?.errors?.['required']">Name is required</small>
+                </div>
               </div>
               <div class="mb-3">
-                <label class="form-label">Email ID</label>
-                <input type="email" class="form-control" placeholder="Email ID">
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Mobile number</label>
-                <input type="tel" class="form-control" placeholder="Mobile number">
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Remarks</label>
-                <input type="text" class="form-control" placeholder="Remarks">
-              </div>
+                <label class="form-label required-asterisk">Email ID</label>
+                <input type="email" class="form-control" placeholder="Email ID" formControlName="email">
 
+                <!-- Error Message -->
+                <div *ngIf="email?.invalid && (email?.touched || email?.dirty)" class="text-danger">
+                  <small *ngIf="email?.errors?.['required']">Email is required</small>
+                  <small *ngIf="email?.errors?.['email']"> Please enter a valid email address.</small>
+                </div>
+
+
+              </div>
+              <div class="mb-3">
+                <label class="form-label required-asterisk">Mobile number</label>
+                <input type="tel" class="form-control" placeholder="Mobile number" formControlName="mobile">
+
+                <!-- Error Message -->
+                <div *ngIf="mobile?.invalid && (mobile?.touched || mobile?.dirty)" class="text-danger">
+                  <small *ngIf="mobile?.errors?.['required']">Mobile number is required</small>
+                  <small *ngIf="mobile?.errors?.['pattern']">Enter a valid 10-digit mobile number</small>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label required-asterisk">Remarks</label>
+                <input type="text" class="form-control" placeholder="Remarks" formControlName="remarks">
+
+                <!-- Error Message -->
+                <div *ngIf="remarks?.invalid && (remarks?.touched || remarks?.dirty)" class="text-danger">
+                  <small *ngIf="remarks?.errors?.['required']">Remarks are required</small>
+                </div>
+              </div>
             </div>
+
             <div class="col-md-7">
               <div class="mb-3">
-                <label class="form-label">Building/Society</label>
-                <input type="text" class="form-control w-75" placeholder="Building">
+                <label class="form-label required-asterisk">Building/Society</label>
+                <input type="text" class="form-control w-75" placeholder="Building" formControlName="building">
+
+                <!-- Error Message -->
+                <div *ngIf="building?.invalid && (building?.touched || building?.dirty)" class="text-danger">
+                  <small *ngIf="building?.errors?.['required']">Building/Society name is required</small>
+                </div>
               </div>
               <div class="mb-3">
-                <label class="form-label">Address</label>
-                <input type="text" class="form-control" placeholder="Address">
+                <label class="form-label required-asterisk">Address</label>
+                <input type="text" class="form-control" placeholder="Address" formControlName="address">
+
+                <!-- Error Message -->
+                <div *ngIf="address?.invalid && (address?.touched || address?.dirty)" class="text-danger">
+                  <small *ngIf="address?.errors?.['required']">Address is required</small>
+                </div>
               </div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="mb-3">
-                    <label class="form-label">City</label>
-                    <input type="text" class="form-control" placeholder="City">
+                    <label class="form-label required-asterisk">City</label>
+                    <input type="text" class="form-control" placeholder="City" formControlName="city">
+
+                    <!-- Error Message -->
+                    <div *ngIf="city?.invalid && (city?.touched || city?.dirty)" class="text-danger">
+                      <small *ngIf="city?.errors?.['required']">City is required</small>
+                      <small *ngIf="city?.errors?.['pattern']">Only letters and spaces allowed</small>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="mb-3">
-                    <label class="form-label">State</label>
-                    <input type="text" class="form-control" placeholder="State">
+                    <label class="form-label required-asterisk">State</label>
+                    <input type="text" class="form-control" placeholder="State" formControlName="state">
+
+                    <!-- Error Message -->
+                    <div *ngIf="state?.invalid && (state?.touched || state?.dirty)" class="text-danger">
+                      <small *ngIf="state?.errors?.['required']">State is required</small>
+                      <small *ngIf="state?.errors?.['minlength']">Minimum 2 characters required</small>
+                      <small *ngIf="state?.errors?.['pattern']">Only letters and spaces allowed</small>
+                    </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
+
+          <button type="submit" class="btn btn-submit mt-3" [disabled]="myForm.invalid">Submit</button>
+
         </form>
+
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-submit">Submit</button>
-      </div>
+
     </div>
   </div>
 </div>
@@ -752,14 +810,15 @@
 
 
       <div class="form-wrapper my-3">
-        <form>
+
+        <form [formGroup]="deviceForm" (ngSubmit)="onDeviceFormSubmit()">
           <!-- Number of Devices -->
           <div class="row mb-3 align-items-center">
             <div class="col">
               <label for="devices" class="form-label">Number of devices</label>
             </div>
             <div class="col-auto">
-              <input type="number" id="devices" class="form-control text-center" value="1" min="0" />
+              <input type="number" id="devices" class="form-control text-center" formControlName="devices" min="0" />
             </div>
           </div>
 
@@ -770,12 +829,13 @@
             </div>
             <div class="col-auto" style="margin-right: -90px;">
               <div class="form-check form-check-inline">
-
-                <input type="radio" name="install" id="installYes" value="yes" checked class="form-check-input">
+                <input type="radio" name="install" id="installYes" value="yes" formControlName="install"
+                  class="form-check-input" />
                 <label class="form-check-label" for="installYes">Yes</label>
               </div>
               <div class="form-check form-check-inline">
-                <input type="radio" name="install" id="installNo" value="no" class="form-check-input">
+                <input type="radio" name="install" id="installNo" value="no" formControlName="install"
+                  class="form-check-input" />
                 <label class="form-check-label" for="installNo">No</label>
               </div>
             </div>
@@ -787,21 +847,24 @@
               <label for="subscriptions" class="form-label">Subscription</label>
             </div>
             <div class="col-auto">
-              <input type="number" id="subscriptions" class="form-control text-center" value="1" min="0"
-                style="position: relative;right: 55px;" />
+              <input type="number" id="subscriptions" class="form-control text-center" formControlName="subscriptions"
+                min="0" style="position: relative; right: 55px;" />
             </div>
           </div>
 
           <!-- Total Cost -->
-          <div class="mb-4 ">
-            <p class="buyNowModal-text">Total cost: ₹ <span id="totalCost">1,700</span> </p>
+          <div class="mb-4">
+            <p class="buyNowModal-text">
+              Total cost: ₹ <span id="totalCost">{{ totalCost }}</span>
+            </p>
           </div>
 
           <!-- Submit Button -->
           <div class="text-end">
-            <button type="submit" class="btn btn-submit px-4">Submit</button>
+            <button type="submit" class="btn btn-submit px-4" [disabled]="deviceForm.invalid">Submit</button>
           </div>
         </form>
+
       </div>
 
     </div>
