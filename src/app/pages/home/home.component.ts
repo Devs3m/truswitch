@@ -247,6 +247,6 @@ get state() {
   return this.myForm.get('state');
 }
 
-
+isMenuOpen: boolean = false;
 
 }

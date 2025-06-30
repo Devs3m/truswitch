@@ -1,6 +1,6 @@
 <div class="truswitch-container">
 
-  <header class="navbar">
+  <!-- <header class="navbar">
     <div class="navbar-left">
       <img src="assets/images/logo.svg" alt="Truswitch Logo" class="logo-img" />
       <img src="assets/images/logotext.svg" alt="Truswitch LogoText" class="logotext-img" />
@@ -12,7 +12,36 @@
       <a routerLink="" fragment="pricing">Pricing</a>
       <a routerLink="" fragment="faq">FAQ</a>
     </nav>
-  </header>
+  </header> -->
+
+  <header class="navbar">
+   <div class="navbar-left">
+    <img src="assets/images/logo.svg" alt="Truswitch Logo" class="logo-img" />
+    <img src="assets/images/logotext.svg" alt="Truswitch LogoText" class="logotext-img" />
+    <span class="ms-3 mt-2" style="color: #FF4E45;">Launching Soon!</span>
+  </div>
+   <nav class="navbar-right d-none d-md-flex">
+    <a routerLink="" href="#products">Products</a>
+    <a routerLink="" fragment="partners">Partners</a>
+    <a routerLink="" fragment="pricing">Pricing</a>
+    <a routerLink="" fragment="faq">FAQ</a>
+  </nav>
+    <div class="mobile-menu-icon d-md-none me-3" (click)="isMenuOpen = !isMenuOpen">
+    <img src="../../../assets/images/hamburgericon.svg" alt="Menu" width="30" height="30">
+  </div>
+</header>
+
+<div class="mobile-overlay" *ngIf="isMenuOpen">
+  <div class="overlay-content">
+<button class="close-btn me-3" (click)="isMenuOpen = false" aria-label="Close">
+  <span class="material-symbols-outlined">arrow_forward_ios</span>
+</button>
+    <a routerLink="" fragment="products" (click)="isMenuOpen = false">Products</a>
+    <a routerLink="" fragment="partners" (click)="isMenuOpen = false">Partners</a>
+    <a routerLink="" fragment="pricing" (click)="isMenuOpen = false">Pricing</a>
+    <a routerLink="" fragment="faq" (click)="isMenuOpen = false">FAQ</a>
+  </div>
+</div>
 
   <!-- Hero Carousel -->
   <section class="hero">
@@ -300,9 +329,8 @@
             <li class="d-flex align-items-center mb-3"><i class="fa-solid fa-circle-check me-2"
                 style="color: #06D6A0;"></i> Set cut off time for Charging
             </li>
-            <li class="d-flex align-items-center mb-3"><i class="fa-solid fa-circle-check me-2 icon-adjust"
-                style="color: #06D6A0; "></i> Set different rates for Owners/Tenants/Guests
-              voltage/temperature/current situations</li>
+            <li class="d-flex align-items-center mb-3"><i class="fa-solid fa-circle-check me-2 "
+                style="color: #06D6A0; "></i> Set different rates for Owners/Tenants/Guests</li>
             <li class="d-flex align-items-center mb-3"><i class="fa-solid fa-circle-check me-2 icon-adjust"
                 style="color: #06D6A0; "></i> Approval process to allow Guests for charging their
               vehicle
@@ -368,13 +396,16 @@
 
     <div class="partner-section pb-5 px-3 px-md-5 bg-light">
       <!-- Title and Tabs -->
-      <div class="d-flex align-items-center gap-4 mb-5">
+        <div class="row">
+          <div class="col-lg-2"> 
         <div class="partners-title">
           <h2 class="mb-0">Partners</h2>
-          <div class="float-end" style="margin-top: -10px; margin-right: 15px;">
+          <div class="float-end" style="margin-top: -10px; margin-right: 50px;">
             <img src="../../../assets/images/lineargreen.svg" alt="" style="width: 185px;" />
           </div>
         </div>
+        </div>
+        <div class="col-lg-4">
         <div class="tab-buttons d-flex gap-2">
           <button class="btn tab-btn" [ngClass]="{ active: selectedTab === 'commercial' }"
             (click)="switchTab('commercial')">
@@ -385,6 +416,7 @@
             Workplaces
           </button>
         </div>
+         </div>
       </div>
 
       <!-- Content Area -->
@@ -644,7 +676,7 @@
           </p>
 
 
-          <p style="color: white;">
+          <p style="color: white; font-size: 16px; margin-top:8px;">
             Registered Office: No 5/17,13th Avenue, Harrington Rd, GF6, Chetpet, Chennai, TN 600031, India
 
           </p>
