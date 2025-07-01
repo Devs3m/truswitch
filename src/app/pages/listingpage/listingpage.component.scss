@@ -1,0 +1,52 @@
+.clearfix {
+  margin: 10px;
+}
+
+/* Remove bullet points */
+::ng-deep .dx-datagrid td,
+::ng-deep .dx-datagrid .dx-header-row td,
+::ng-deep .dx-datagrid .dx-filter-row td {
+  list-style: none !important;
+}
+
+/* Header styling */
+::ng-deep .dx-datagrid .dx-header-row > td {
+  background-color: #f04438 !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+/* Toolbar button styles */
+::ng-deep .dx-datagrid .dx-toolbar .dx-button {
+  background-color: #f04438 !important;
+  color: white !important;
+  border: none !important;
+}
+
+::ng-deep .dx-datagrid .dx-toolbar .dx-button:hover {
+  background-color: #f04438 !important;
+}
+
+::ng-deep .dx-datagrid .dx-toolbar .dx-button .dx-icon,
+::ng-deep .dx-datagrid .dx-toolbar .dx-button .dx-button-content {
+  color: white !important;
+  fill: white !important;
+}
+
+::ng-deep .dx-header-filter.dx-header-filter::before{
+    color: white !important;
+    margin-left: 10px;
+}
+
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  border-left: 5px solid #f04438;
+  width: 200px;
+  margin: 0 10px;
+}
+
+.card-body {
+  padding: 1rem 1.5rem;
+}

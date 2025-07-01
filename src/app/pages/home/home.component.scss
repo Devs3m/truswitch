@@ -56,10 +56,22 @@ $text-color: #666;
       &:hover {
         color: $primary-color;
       }
+
+      
     }
   }
 }
 
+.custom-login-btn {
+    border: 1px solid #FF4E45;
+    color: #FF4E45;
+    background-color: transparent;
+  }
+
+  .custom-login-btn:hover {
+    background-color: #FF4E45;
+    color: white;
+  }
 //responsive navbar style
 
 .mobile-menu-icon {
@@ -110,6 +122,16 @@ $text-color: #666;
       color: white;
       cursor: pointer;
     }
+    
+.custom-login-btn {
+    background-color: white;
+    color: #FF4E45;
+  }
+
+  .custom-login-btn:hover {
+    background-color: white;
+    color: #FF4E45;
+  }
   }
 }
 
@@ -383,29 +405,18 @@ input.form-control {
 
 .image-box {
   // background: #ffffff;
-  padding: 30px;
-  position: relative;
+  // position: relative;
   height: 380px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: -90px;
 }
 
-.img-scooter {
-  width: 700px;
-  height: 700px;
-  position: absolute;
-  right: 185px;
-  bottom: -60px;
-}
 
 .img-bike {
-  width: 600px;
-  height: 600px;
-  position: absolute;
-  bottom: 65px;
-  left: 240px;
+  width: 500px;
+  height: auto;
+  margin-left: -230px;
 }
 
 .feature-list {
@@ -609,9 +620,9 @@ input.form-control {
 
   }
 
-  .btn-gradient:hover {
-    // transform: translateY(-2px);
-  }
+  // .btn-gradient:hover {
+  //   // transform: translateY(-2px);
+  // }
 
   .rounded {
     border-radius: 12px !important;
@@ -765,6 +776,7 @@ input.form-control {
   font-size: 25px;
   letter-spacing: 0px;
   color: #2D3647;
+  margin-left: -25px;
 
 
 }
@@ -855,7 +867,7 @@ input.form-control {
   border: none;
   text-align: center;
   border-radius: 1000px;
-  margin: 0 -170px;
+  margin: 0 -15px;
   background: #FF4E45;
   width: 140px;
   height: 55px;
@@ -1243,9 +1255,6 @@ input.form-control,
       margin: 0 25px;
     }
   }
-    .image-box{
-    margin-top: -150px;
-  }
 
   .image-box,
   .image-box1 {
@@ -1256,26 +1265,15 @@ input.form-control,
   }
   
 
-   .img-scooter{
-        width: 100%;
-    height: auto;
-    position: relative;
-    right: auto;
-    left:45px;
-    bottom: 0;
 
-  }
 
 
     .img-bike{
         width: 100%;
     height: auto;
-    position: relative;
-    bottom: 70px;
-    left: auto;
-    right: 75px;
-
-  }
+            margin-bottom: 0;
+            margin-left: -35px;
+          }
   
 
   .img-mobile {
@@ -1606,6 +1604,8 @@ input.form-control,
   #buyNowModal .form-check-input[type="radio"] {
     width: 18px;
     height: 18px;
+    margin-left: 0px;
+
   }
 
   #buyNowModal .form-check-input[type="radio"]::before {
@@ -1748,9 +1748,7 @@ input.form-control,
     }
   }
 
-  .image-box{
-    margin-top: -150px;
-  }
+
   .image-box,
   .image-box1 {
     padding: 0;
@@ -1759,24 +1757,12 @@ input.form-control,
     text-align: center;
   }
 
-  .img-scooter{
-        width: 100%;
-    height: auto;
-    position: relative;
-    left: auto;
-    right: auto;
-    left:60px;
 
-  }
 
 
     .img-bike{
         width: 100%;
     height: auto;
-    position: relative;
-    bottom: 70px;
-    left: auto;
-    right: 75px;
 
   }
   
@@ -2127,6 +2113,8 @@ input.form-control,
   #buyNowModal .form-check-input[type="radio"]::before {
     width: 8px;
     height: 8px;
+
+
   }
 
   #buyNowModal .btn-submit {

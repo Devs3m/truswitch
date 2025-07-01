@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from 'src/app/api.service';
+import { Formdatadetails } from 'src/app/formdatadetails';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +21,7 @@ export class HomeComponent {
 
   myForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private dataservice: ApiService) { }
 
   ngOnInit() {
 
@@ -41,9 +43,22 @@ export class HomeComponent {
     // Buy Form  
 
     this.deviceForm = this.fb.group({
+       // Device related
       devices: [''],
       install: [''],
-      subscriptions: ['']
+      subscriptions: [''],
+
+        // User Details
+
+       name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      mobile: ['', [Validators.required,  Validators.pattern('^[6-9]\\d{9}$')]],
+      remarks: ['', Validators.required],
+      building: ['', Validators.required],
+      address: ['', Validators.required],
+       city: ['', [Validators.required,Validators.pattern('^[a-zA-Z ]*$')  ]],
+       state: ['', [Validators.required,Validators.pattern('^[a-zA-Z ]*$')
+  ]],
     });
 
 
@@ -157,15 +172,48 @@ export class HomeComponent {
 
 
 
-  onSubmit() {
-    if (this.myForm.valid) {
-      console.log('Form Data:', this.myForm.value);
-      this.myForm.reset();
-    } else {
-      console.log('Form Invalid');
-      this.myForm.markAllAsTouched();
-    }
+
+
+  onSubmit(): void {
+  if (this.myForm.valid) {
+    const formValue = this.myForm.value;
+
+    const payload = {
+      name: formValue.name,
+      emailid: formValue.email,
+      mobile: formValue.mobile,
+      building: formValue.building,
+      address: formValue.address,
+      city: formValue.city,
+      state: formValue.state,
+      remarks: formValue.remarks,
+      formtype: 'Join now',  
+      noofdevice: 0,
+      instanllation: false,      
+      subscription: "0",           
+      totalcost: 0,              
+      createdat: new Date().toISOString()
+    };
+
+    console.log('General Form Payload:', payload);
+
+    this.dataservice.addorderData(payload).subscribe({
+      next: (res) => {
+        console.log('Submitted successfully:', res);
+        alert('General form submitted successfully!');
+        this.myForm.reset();
+      },
+      error: (err) => {
+        console.error('Error submitting general form:', err);
+        alert('Submission failed. Try again.');
+      }
+    });
+  } else {
+    console.log('General Form Invalid');
+    this.myForm.markAllAsTouched();
   }
+}
+
 
 
   calculateTotalCost(devices: number, install: string, subscriptions: number) {
@@ -177,20 +225,55 @@ export class HomeComponent {
   }
 
 
-  onDeviceFormSubmit() {
-    if (this.deviceForm.valid) {
-      console.log('Form submitted:', this.deviceForm.value);
-      console.log('Total cost:', this.totalCost);
 
-      this.deviceForm.reset({
-        devices: '',
-        install: '',
-        subscriptions: ''
-      });
 
-      this.totalCost = 0;
-    }
+onDeviceFormSubmit(): void {
+  if (this.deviceForm.valid) {
+    const formValue = this.deviceForm.value;
+
+    const payload = {
+      name: formValue.name,
+      emailid: formValue.email,
+      mobile: formValue.mobile,
+      building: formValue.building,
+      address: formValue.address,
+      city: formValue.city,
+      state: formValue.state,
+      remarks: formValue.remarks,
+       formtype: 'Buy now', 
+      noofdevice: formValue.devices,
+      instanllation: formValue.install,
+      subscription: formValue.subscriptions,
+      totalcost: this.totalCost,
+      createdat: new Date().toISOString()
+    };
+
+    console.log('Submitting:', payload);
+
+    this.dataservice.addorderData(payload).subscribe({
+      next: (res) => {
+        console.log('Saved successfully:', res);
+        alert('Form submitted successfully!');
+
+        // Reset form with default values
+        this.deviceForm.reset({
+          devices: '',
+          install: '',
+          subscriptions: '',
+        });
+        this.totalCost = 0;
+      },
+      error: (err) => {
+        console.error('Submit error:', err);
+        alert('Something went wrong. Try again.');
+      }
+    });
+
+  } else {
+    this.myForm.markAllAsTouched();
   }
+}
+
 
     ngAfterViewInit(): void {
     const buyNowModal = document.getElementById('buyNowModal');
@@ -246,6 +329,16 @@ get city() {
 get state() {
   return this.myForm.get('state');
 }
+
+
+//  get name() { return this.deviceForm.get('name') || this.myForm.get('name'); }
+//   get email() { return this.deviceForm.get('email') || this.myForm.get('email'); }
+//   get mobile() { return this.deviceForm.get('mobile') || this.myForm.get('mobile'); }
+//   get remarks() { return this.deviceForm.get('remarks') || this.myForm.get('remarks'); }
+//   get building() { return this.deviceForm.get('building') || this.myForm.get('building'); }
+//   get address() { return this.deviceForm.get('address') || this.myForm.get('address'); }
+//   get city() { return this.deviceForm.get('city') || this.myForm.get('city'); }
+//   get state() { return this.deviceForm.get('state') || this.myForm.get('state'); }
 
 isMenuOpen: boolean = false;
 

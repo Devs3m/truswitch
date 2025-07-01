@@ -1,0 +1,45 @@
+<div class="login-wrapper d-flex justify-content-center align-items-center">
+  <div class="login-card">
+    <!-- Logo -->
+    <div class="text-center mb-4">
+      <img src="assets/images/logo.svg" alt="Logo" class="logo-img" />
+      <img src="../../../assets/images/logotext.svg" alt="" srcset="">
+    </div>
+
+    <h3 class="text-center mb-4">Login</h3>
+
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm" novalidate>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-control"
+          required
+          [(ngModel)]="email"
+        />
+        <div *ngIf="loginForm.submitted && !email" class="text-danger small">
+          Email is required
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="form-control"
+          required
+          [(ngModel)]="password"
+        />
+        <div *ngIf="loginForm.submitted && !password" class="text-danger small">
+          Password is required
+        </div>
+      </div>
+
+      <button class="btn btn-primary w-100 rounded-pill">Login</button>
+    </form>
+  </div>
+</div>

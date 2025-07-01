@@ -20,11 +20,12 @@
     <img src="assets/images/logotext.svg" alt="Truswitch LogoText" class="logotext-img" />
     <span class="ms-3 mt-2" style="color: #FF4E45;">Launching Soon!</span>
   </div>
-   <nav class="navbar-right d-none d-md-flex">
+   <nav class="navbar-right d-none d-md-flex align-items-center gap-3 ">
     <a routerLink="" href="#products">Products</a>
     <a routerLink="" fragment="partners">Partners</a>
     <a routerLink="" fragment="pricing">Pricing</a>
     <a routerLink="" fragment="faq">FAQ</a>
+     <button class="btn custom-login-btn" [routerLink]="['/Login']">Login</button>
   </nav>
     <div class="mobile-menu-icon d-md-none me-3" (click)="isMenuOpen = !isMenuOpen">
     <img src="../../../assets/images/hamburgericon.svg" alt="Menu" width="30" height="30">
@@ -40,6 +41,8 @@
     <a routerLink="" fragment="partners" (click)="isMenuOpen = false">Partners</a>
     <a routerLink="" fragment="pricing" (click)="isMenuOpen = false">Pricing</a>
     <a routerLink="" fragment="faq" (click)="isMenuOpen = false">FAQ</a>
+     <button class="btn custom-login-btn" [routerLink]="['/Login']">Login</button>
+
   </div>
 </div>
 
@@ -234,8 +237,9 @@
         <!-- Left: Image Box -->
         <div class="col-md-6 mb-4 mb-md-0">
           <div class="image-box">
-            <img src="../../../assets/images/scooter.png" alt="Scooter" class="img-scooter" />
-            <img src="../../../assets/images/Bike.png" alt="Bike" class="img-bike" />
+            <!-- <img src="../../../assets/images/scooter.png" alt="Scooter" class="img-scooter" />
+            <img src="../../../assets/images/Bike.png" alt="Bike" class="img-bike" /> -->
+            <img src="../../../assets/images/bike-Group.svg" alt="" class="img-bike">
           </div>
         </div>
 
@@ -427,7 +431,7 @@
               style="max-height: 400px; width: auto" />
           </div>
 
-          <div class="col-md-6 ms-4">
+          <div class="col-md-6 ms-lg-4">
             <h2 class="mb-4 Commercial-content-title">Provide charging convenience to your customers</h2>
             <p class="mb-4 Commercial-content">
               As the demand for EV vehicles continues to rise, customers may soon inquire about charging ports at your
@@ -452,7 +456,7 @@
               alt="Workplace charging solution" style="height: 450px; width: auto" />
           </div>
 
-          <div class="col-md-6 ms-4">
+          <div class="col-md-6 ms-lg-4">
             <h2 class="mb-4 Commercial-content-title">Empower your workplace </h2>
             <p class="mb-4 Commercial-content">
               With TruSwitch, employees can charge their vehicles at work, pay directly via the app, and view usage
@@ -843,59 +847,136 @@
 
       <div class="form-wrapper my-3">
 
+        
         <form [formGroup]="deviceForm" (ngSubmit)="onDeviceFormSubmit()">
-          <!-- Number of Devices -->
-          <div class="row mb-3 align-items-center">
-            <div class="col">
-              <label for="devices" class="form-label">Number of devices</label>
-            </div>
-            <div class="col-auto">
-              <input type="number" id="devices" class="form-control text-center" formControlName="devices" min="0" />
-            </div>
-          </div>
+  <div class="row">
+    <div class="col-md-5">
+      <!-- Name -->
+      <div class="mb-3">
+        <label class="form-label required-asterisk">Name</label>
+        <input type="text" class="form-control w-100"  formControlName="name" placeholder="Name">
+        <div *ngIf="name?.invalid && (name?.touched || name?.dirty)" class="text-danger">
+          <small *ngIf="name?.errors?.['required']">Name is required</small>
+        </div>
+      </div>
 
-          <!-- Installation Needed -->
-          <div class="row mb-3 align-items-center">
-            <div class="col">
-              <label class="form-label">Is installation needed?</label>
-            </div>
-            <div class="col-auto" style="margin-right: -90px;">
-              <div class="form-check form-check-inline">
-                <input type="radio" name="install" id="installYes" value="yes" formControlName="install"
-                  class="form-check-input" />
-                <label class="form-check-label" for="installYes">Yes</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input type="radio" name="install" id="installNo" value="no" formControlName="install"
-                  class="form-check-input" />
-                <label class="form-check-label" for="installNo">No</label>
-              </div>
-            </div>
-          </div>
+      <!-- Email -->
+      <div class="mb-3">
+        <label class="form-label required-asterisk">Email ID</label>
+        <input type="email" class="form-control w-100" formControlName="email" placeholder="Email ID">
+        <div *ngIf="email?.invalid && (email?.touched || email?.dirty)" class="text-danger">
+          <small *ngIf="email?.errors?.['required']">Email is required</small>
+          <small *ngIf="email?.errors?.['email']">Please enter a valid email address.</small>
+        </div>
+      </div>
 
-          <!-- Subscription -->
-          <div class="row mb-4 align-items-center">
-            <div class="col">
-              <label for="subscriptions" class="form-label">Subscription</label>
-            </div>
-            <div class="col-auto">
-              <input type="number" id="subscriptions" class="form-control text-center" formControlName="subscriptions"
-                min="0" style="position: relative; right: 55px;" />
-            </div>
-          </div>
+      <!-- Mobile -->
+      <div class="mb-3">
+        <label class="form-label required-asterisk">Mobile number</label>
+        <input type="tel" class="form-control w-100" formControlName="mobile" placeholder="Mobile number">
+        <div *ngIf="mobile?.invalid && (mobile?.touched || mobile?.dirty)" class="text-danger">
+          <small *ngIf="mobile?.errors?.['required']">Mobile number is required</small>
+          <small *ngIf="mobile?.errors?.['pattern']">Enter a valid 10-digit mobile number</small>
+        </div>
+      </div>
 
-          <!-- Total Cost -->
-          <div class="mb-4">
-            <p class="buyNowModal-text">
-              Total cost: ₹ <span id="totalCost">{{ totalCost }}</span>
-            </p>
-          </div>
+      <!-- Remarks -->
+      <div class="mb-3">
+        <label class="form-label required-asterisk">Remarks</label>
+        <input type="text" class="form-control w-100" formControlName="remarks" placeholder="Remarks">
+        <div *ngIf="remarks?.invalid && (remarks?.touched || remarks?.dirty)" class="text-danger">
+          <small *ngIf="remarks?.errors?.['required']">Remarks are required</small>
+        </div>
+      </div>
+    </div>
 
-          <!-- Submit Button -->
-          <div class="text-end">
-            <button type="submit" class="btn btn-submit px-4" [disabled]="deviceForm.invalid">Submit</button>
+    <div class="col-md-7">
+      <!-- Building -->
+      <div class="mb-3">
+        <label class="form-label required-asterisk">Building/Society</label>
+        <input type="text" class="form-control w-100" formControlName="building" placeholder="Building">
+        <div *ngIf="building?.invalid && (building?.touched || building?.dirty)" class="text-danger">
+          <small *ngIf="building?.errors?.['required']">Building/Society name is required</small>
+        </div>
+      </div>
+
+      <!-- Address -->
+      <div class="mb-3">
+        <label class="form-label required-asterisk">Address</label>
+        <input type="text" class="form-control w-100" formControlName="address" placeholder="Address">
+        <div *ngIf="address?.invalid && (address?.touched || address?.dirty)" class="text-danger">
+          <small *ngIf="address?.errors?.['required']">Address is required</small>
+        </div>
+      </div>
+
+      <!-- City -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label required-asterisk">City</label>
+            <input type="text" class="form-control w-100" formControlName="city" placeholder="City">
+            <div *ngIf="city?.invalid && (city?.touched || city?.dirty)" class="text-danger">
+              <small *ngIf="city?.errors?.['required']">City is required</small>
+              <small *ngIf="city?.errors?.['pattern']">Only letters and spaces allowed</small>
+            </div>
           </div>
-        </form>
+        </div>
+
+        <!-- State -->
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label required-asterisk">State</label>
+            <input type="text" class="form-control w-100" formControlName="state" placeholder="State">
+            <div *ngIf="state?.invalid && (state?.touched || state?.dirty)" class="text-danger">
+              <small *ngIf="state?.errors?.['required']">State is required</small>
+              <small *ngIf="state?.errors?.['minlength']">Minimum 2 characters required</small>
+              <small *ngIf="state?.errors?.['pattern']">Only letters and spaces allowed</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Device Related Section -->
+  <div class="row mt-4">
+    <!-- Devices -->
+    <div class="col-md-4 mb-3">
+      <label class="form-label">Number of devices</label>
+      <input type="number" class="form-control w-75" formControlName="devices" min="0" />
+    </div>
+
+    <!-- Install -->
+    <div class="col-md-4 mb-3">
+      <label class="form-label">Installation Needed?</label>
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" value="yes" formControlName="install" id="installYes" />
+        <label class="form-check-label" for="installYes">Yes</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" value="no" formControlName="install" id="installNo" />
+        <label class="form-check-label" for="installNo">No</label>
+      </div>
+    </div>
+
+    <!-- Subscription -->
+    <div class="col-md-4 mb-3">
+      <label class="form-label">Subscription</label>
+      <input type="number" class="form-control w-75" formControlName="subscriptions" min="0" />
+    </div>
+  </div>
+
+  <!-- Total Cost -->
+  <div class="text-end fw-bold fs-5 mt-2 mb-4">
+    Total Cost: ₹ {{ totalCost }}
+  </div>
+
+  <!-- Submit -->
+  <div class="text-end">
+    <button class="btn btn-submit px-4" type="submit" [disabled]="deviceForm.invalid">Submit</button>
+  </div>
+</form>
+
 
       </div>
 
