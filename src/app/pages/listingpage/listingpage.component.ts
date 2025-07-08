@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { Formdatadetails } from 'src/app/formdatadetails';
+// import { DevExpressPdfService } from 'src/app/services/dev-express-pdf.service';
 // import * as jsPDF from 'jspdf';
 // import * as moment from 'moment';
 // import { exportDataGrid as exportDataGridToPdf } from 'devextreme/pdf_exporter';
@@ -12,37 +13,39 @@ import { Formdatadetails } from 'src/app/formdatadetails';
 })
 export class ListingpageComponent {
 
-    OrderDetails: Formdatadetails[]=[];
-    totalCount: number = 0;
-    constructor(private dataService:ApiService){
+  OrderDetails: Formdatadetails[] = [];
+  totalCount: number = 0;
+  constructor(private dataService: ApiService, ) {
 
- }
+  }
   ngOnInit(): void {
-     this.getAllOrder()
-     this.fetchCount()
- }
+    this.getAllOrder()
+    this.fetchCount()
+  }
 
- getAllOrder():void{
-      this.dataService.getAllData().subscribe((data)=>{
-        console.log(data)
-        this.OrderDetails=data
-      }) 
- }
+  getAllOrder(): void {
+    this.dataService.getAllData().subscribe((data) => {
+      console.log(data)
+      this.OrderDetails = data
+    })
+  }
 
-fetchCount(): void {
-  this.dataService.getRecordCount().subscribe({
-    next: (res) => {
-      this.totalCount = res.totalJoinnow; 
-      console.log('Total Count:', this.totalCount);
-    },
-    error: (err) => {
-      console.error('Error fetching count:', err);
-    }
-  });
+  fetchCount(): void {
+    this.dataService.getRecordCount().subscribe({
+      next: (res) => {
+        this.totalCount = res.totalJoinnow;
+        console.log('Total Count:', this.totalCount);
+      },
+      error: (err) => {
+        console.error('Error fetching count:', err);
+      }
+    });
+  }
+
+
+onExporting(e: any, fileName: string): void {
+    // this.pdfservice.exporting(e, fileName);
 }
-
-
-
 
 
   // onExporting(e: any, fileName: string) {

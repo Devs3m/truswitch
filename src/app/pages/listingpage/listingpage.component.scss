@@ -50,3 +50,31 @@
 .card-body {
   padding: 1rem 1.5rem;
 }
+
+// .custom-login-btn {
+//   height: 100px;
+//     border: 1px solid #FF4E45;
+//     color: #FF4E45;
+//     background-color: transparent;
+//   }
+
+//   .custom-login-btn:hover {
+//     background-color: #FF4E45;
+//     color: white;
+//   }
+
+.custom-login-btn {
+  background-color: transparent;
+  color: #FF4E45;
+  border: 1px solid #FF4E45;
+  border-radius: 5px;
+  padding: 6px 16px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+
+  &:hover {
+    background-color: #FF4E45;
+    color: white;
+  }
+}
+

@@ -14,37 +14,37 @@
     </nav>
   </header> -->
 
-  <header class="navbar">
-   <div class="navbar-left">
-    <img src="assets/images/logo.svg" alt="Truswitch Logo" class="logo-img" />
-    <img src="assets/images/logotext.svg" alt="Truswitch LogoText" class="logotext-img" />
-    <span class="ms-3 mt-2" style="color: #FF4E45;">Launching Soon!</span>
-  </div>
-   <nav class="navbar-right d-none d-md-flex align-items-center gap-3 ">
-    <a routerLink="" href="#products">Products</a>
-    <a routerLink="" fragment="partners">Partners</a>
-    <a routerLink="" fragment="pricing">Pricing</a>
-    <a routerLink="" fragment="faq">FAQ</a>
-     <button class="btn custom-login-btn" [routerLink]="['/Login']">Login</button>
-  </nav>
+  <header class="navbar position-md-sticky">
+    <div class="navbar-left">
+      <img src="assets/images/logo.svg" alt="Truswitch Logo" class="logo-img" />
+      <img src="assets/images/logotext.svg" alt="Truswitch LogoText" class="logotext-img d-sm-block d-none" />
+      <span class="ms-3 mt-2" style="color: #FF4E45;">Launching Soon!</span>
+    </div>
+    <nav class="navbar-right d-none d-md-flex align-items-center gap-3 ">
+      <a routerLink="" fragment="products">Products</a>
+      <a routerLink="" fragment="partners">Partners</a>
+      <a routerLink="" fragment="pricing">Pricing</a>
+      <a routerLink="" fragment="faq">FAQ</a>
+      <button class="btn custom-login-btn ms-4" [routerLink]="['/Login']">Login</button>
+    </nav>
     <div class="mobile-menu-icon d-md-none me-3" (click)="isMenuOpen = !isMenuOpen">
-    <img src="../../../assets/images/hamburgericon.svg" alt="Menu" width="30" height="30">
-  </div>
-</header>
+      <img src="../../../assets/images/hamburgericon.svg" alt="Menu" width="30" height="30">
+    </div>
+  </header>
 
-<div class="mobile-overlay" *ngIf="isMenuOpen">
-  <div class="overlay-content">
-<button class="close-btn me-3" (click)="isMenuOpen = false" aria-label="Close">
-  <span class="material-symbols-outlined">arrow_forward_ios</span>
-</button>
-    <a routerLink="" fragment="products" (click)="isMenuOpen = false">Products</a>
-    <a routerLink="" fragment="partners" (click)="isMenuOpen = false">Partners</a>
-    <a routerLink="" fragment="pricing" (click)="isMenuOpen = false">Pricing</a>
-    <a routerLink="" fragment="faq" (click)="isMenuOpen = false">FAQ</a>
-     <button class="btn custom-login-btn" [routerLink]="['/Login']">Login</button>
+  <div class="mobile-overlay" *ngIf="isMenuOpen">
+    <div class="overlay-content">
+      <button class="close-btn me-3" (click)="isMenuOpen = false" aria-label="Close">
+        <span class="material-symbols-outlined">arrow_forward_ios</span>
+      </button>
+      <a routerLink="" fragment="products" (click)="isMenuOpen = false">Products</a>
+      <a routerLink="" fragment="partners" (click)="isMenuOpen = false">Partners</a>
+      <a routerLink="" fragment="pricing" (click)="isMenuOpen = false">Pricing</a>
+      <a routerLink="" fragment="faq" (click)="isMenuOpen = false">FAQ</a>
+      <button class="btn custom-login-btn" [routerLink]="['/Login']">Login</button>
 
+    </div>
   </div>
-</div>
 
   <!-- Hero Carousel -->
   <section class="hero">
@@ -272,7 +272,7 @@
     </div>
 
 
-    <div class="bg-dark py-5 mb-5">
+    <div class="bg-dark  mb-5">
       <h5 class="metrics-heading">Product Metrics</h5>
       <div class="container-fluid">
         <div class="row text-start align-items-center">
@@ -366,13 +366,13 @@
       </div>
     </div>
 
-    <div class="bg-dark py-5">
+    <div class="bg-dark">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-3 col-12 mb-4 text-start">
-            <h5 class="metrics-heading Appmetrics-heading">App Metrics</h5>
+            <h5 class="Appmetrics-heading">App Metrics</h5>
           </div>
-          <div class="col-md-3 col-4 mb-4 text-s">
+          <div class="col-md-3 col-4 mb-4 text-start">
             <h3 class="Appmetric-number">0</h3>
             <p class="Appmetric-label">Android<br>Downloads</p>
           </div>
@@ -400,27 +400,27 @@
 
     <div class="partner-section pb-5 px-3 px-md-5 bg-light">
       <!-- Title and Tabs -->
-        <div class="row">
-          <div class="col-lg-2"> 
-        <div class="partners-title">
-          <h2 class="mb-0">Partners</h2>
-          <div class="float-end" style="margin-top: -10px; margin-right: 50px;">
-            <img src="../../../assets/images/lineargreen.svg" alt="" style="width: 185px;" />
+      <div class="row">
+        <div class="col-lg-2">
+          <div class="partners-title">
+            <h2 class="mb-0">Partners</h2>
+            <div class="float-end" style="margin-top: -10px; margin-right: 50px;">
+              <img src="../../../assets/images/lineargreen.svg" alt="" style="width: 185px;" />
+            </div>
           </div>
         </div>
-        </div>
         <div class="col-lg-4">
-        <div class="tab-buttons d-flex gap-2">
-          <button class="btn tab-btn" [ngClass]="{ active: selectedTab === 'commercial' }"
-            (click)="switchTab('commercial')">
-            Commercial outlets
-          </button>
-          <button class="btn tab-btn" [ngClass]="{ active: selectedTab === 'workplace' }"
-            (click)="switchTab('workplace')">
-            Workplaces
-          </button>
+          <div class="tab-buttons d-flex gap-2">
+            <button class="btn tab-btn" [ngClass]="{ active: selectedTab === 'commercial' }"
+              (click)="switchTab('commercial')">
+              Commercial outlets
+            </button>
+            <button class="btn tab-btn" [ngClass]="{ active: selectedTab === 'workplace' }"
+              (click)="switchTab('workplace')">
+              Workplaces
+            </button>
+          </div>
         </div>
-         </div>
       </div>
 
       <!-- Content Area -->
@@ -503,7 +503,7 @@
         <!-- Right Column -->
         <div class="col-md-6">
 
-          <div class="ms-5 custom-price-card">
+          <div class="custom-price-card">
             <div class="price-card-details d-flex justify-content-between mb-3">
               <div>
                 <p class="price-details m-0 ">Device Cost</p>
@@ -526,7 +526,7 @@
               <p class="price">₹ 599 <span class="price-member">/user</span></p>
             </div>
 
-            <div class="mt-4">
+            <div class="mt-3">
               <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#buyNowModal">Buy now</button>
 
             </div>
@@ -712,7 +712,7 @@
     </div>
 
     <div class="footer-bottom">
-      © Truswitch 2025
+      © Truswitch {{ currentYear }}
     </div>
   </footer>
 
@@ -737,18 +737,33 @@
               <div class="mb-3">
                 <label class="form-label required-asterisk">Name</label>
                 <input type="text" class="form-control" placeholder="Name" formControlName="name">
-                <div *ngIf="name?.invalid && (name?.touched || name?.dirty)" class="text-danger">
+                <!-- <div *ngIf="name?.invalid && (name?.touched || name?.dirty)" class="text-danger">
                   <small *ngIf="name?.errors?.['required']">Name is required</small>
+                  <small *ngIf="name?.errors?.['pattern']">Only letters and spaces allowed</small>
+
+                </div> -->
+                <div class="error-container">
+                  <ng-container *ngIf="name?.invalid && (name?.touched || name?.dirty)">
+                    <small *ngIf="name?.errors?.['required']">Name is required</small>
+                    <small *ngIf="name?.errors?.['pattern']">Only letters and spaces allowed</small>
+                  </ng-container>
                 </div>
+
               </div>
               <div class="mb-3">
                 <label class="form-label required-asterisk">Email ID</label>
                 <input type="email" class="form-control" placeholder="Email ID" formControlName="email">
 
                 <!-- Error Message -->
-                <div *ngIf="email?.invalid && (email?.touched || email?.dirty)" class="text-danger">
+                <!-- <div *ngIf="email?.invalid && (email?.touched || email?.dirty)" class="text-danger">
                   <small *ngIf="email?.errors?.['required']">Email is required</small>
                   <small *ngIf="email?.errors?.['email']"> Please enter a valid email address.</small>
+                </div> -->
+                <div class="error-container">
+                  <ng-container *ngIf="email?.invalid && (email?.touched || email?.dirty)">
+                    <small *ngIf="email?.errors?.['required']">Email is required</small>
+                    <small *ngIf="email?.errors?.['email']">Please enter a valid email address.</small>
+                  </ng-container>
                 </div>
 
 
@@ -758,19 +773,34 @@
                 <input type="tel" class="form-control" placeholder="Mobile number" formControlName="mobile">
 
                 <!-- Error Message -->
-                <div *ngIf="mobile?.invalid && (mobile?.touched || mobile?.dirty)" class="text-danger">
+                <!-- <div *ngIf="mobile?.invalid && (mobile?.touched || mobile?.dirty)" class="text-danger">
                   <small *ngIf="mobile?.errors?.['required']">Mobile number is required</small>
                   <small *ngIf="mobile?.errors?.['pattern']">Enter a valid 10-digit mobile number</small>
+                </div> -->
+
+                <div class="error-container">
+                  <ng-container *ngIf="mobile?.invalid && (mobile?.touched || mobile?.dirty)">
+                    <small *ngIf="mobile?.errors?.['required']">Mobile number is required</small>
+                    <small *ngIf="mobile?.errors?.['pattern']">Enter a valid 10-digit mobile number</small>
+                  </ng-container>
                 </div>
+
               </div>
               <div class="mb-3">
                 <label class="form-label required-asterisk">Remarks</label>
                 <input type="text" class="form-control" placeholder="Remarks" formControlName="remarks">
 
                 <!-- Error Message -->
-                <div *ngIf="remarks?.invalid && (remarks?.touched || remarks?.dirty)" class="text-danger">
+                <!-- <div *ngIf="remarks?.invalid && (remarks?.touched || remarks?.dirty)" class="text-danger">
                   <small *ngIf="remarks?.errors?.['required']">Remarks are required</small>
+                </div> -->
+
+                <div class="error-container">
+                  <ng-container *ngIf="remarks?.invalid && (remarks?.touched || remarks?.dirty)">
+                    <small *ngIf="remarks?.errors?.['required']">Remarks are required</small>
+                  </ng-container>
                 </div>
+
               </div>
             </div>
 
@@ -780,18 +810,31 @@
                 <input type="text" class="form-control w-75" placeholder="Building" formControlName="building">
 
                 <!-- Error Message -->
-                <div *ngIf="building?.invalid && (building?.touched || building?.dirty)" class="text-danger">
+                <!-- <div *ngIf="building?.invalid && (building?.touched || building?.dirty)" class="text-danger">
                   <small *ngIf="building?.errors?.['required']">Building/Society name is required</small>
+                </div> -->
+
+                <div class="error-container">
+                  <ng-container *ngIf="building?.invalid && (building?.touched || building?.dirty)">
+                    <small *ngIf="building?.errors?.['required']">Building/Society name is required</small>
+                  </ng-container>
                 </div>
+
               </div>
               <div class="mb-3">
                 <label class="form-label required-asterisk">Address</label>
                 <input type="text" class="form-control" placeholder="Address" formControlName="address">
 
                 <!-- Error Message -->
-                <div *ngIf="address?.invalid && (address?.touched || address?.dirty)" class="text-danger">
+                <!-- <div *ngIf="address?.invalid && (address?.touched || address?.dirty)" class="text-danger">
                   <small *ngIf="address?.errors?.['required']">Address is required</small>
+                </div> -->
+                <div class="error-container">
+                  <ng-container *ngIf="address?.invalid && (address?.touched || address?.dirty)">
+                    <small *ngIf="address?.errors?.['required']">Address is required</small>
+                  </ng-container>
                 </div>
+
               </div>
               <div class="row">
                 <div class="col-md-6">
@@ -800,10 +843,18 @@
                     <input type="text" class="form-control" placeholder="City" formControlName="city">
 
                     <!-- Error Message -->
-                    <div *ngIf="city?.invalid && (city?.touched || city?.dirty)" class="text-danger">
+                    <!-- <div *ngIf="city?.invalid && (city?.touched || city?.dirty)" class="text-danger">
                       <small *ngIf="city?.errors?.['required']">City is required</small>
                       <small *ngIf="city?.errors?.['pattern']">Only letters and spaces allowed</small>
+                    </div> -->
+
+                    <div class="error-container">
+                      <ng-container *ngIf="city?.invalid && (city?.touched || city?.dirty)">
+                        <small *ngIf="city?.errors?.['required']">City is required</small>
+                        <small *ngIf="city?.errors?.['pattern']">Only letters and spaces allowed</small>
+                      </ng-container>
                     </div>
+
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -812,11 +863,20 @@
                     <input type="text" class="form-control" placeholder="State" formControlName="state">
 
                     <!-- Error Message -->
-                    <div *ngIf="state?.invalid && (state?.touched || state?.dirty)" class="text-danger">
+                    <!-- <div *ngIf="state?.invalid && (state?.touched || state?.dirty)" class="text-danger">
                       <small *ngIf="state?.errors?.['required']">State is required</small>
                       <small *ngIf="state?.errors?.['minlength']">Minimum 2 characters required</small>
                       <small *ngIf="state?.errors?.['pattern']">Only letters and spaces allowed</small>
+                    </div> -->
+
+                    <div class="error-container">
+                      <ng-container *ngIf="state?.invalid && (state?.touched || state?.dirty)">
+                        <small *ngIf="state?.errors?.['required']">State is required</small>
+                        <small *ngIf="state?.errors?.['minlength']">Minimum 2 characters required</small>
+                        <small *ngIf="state?.errors?.['pattern']">Only letters and spaces allowed</small>
+                      </ng-container>
                     </div>
+
                   </div>
                 </div>
               </div>
@@ -835,7 +895,8 @@
 
 
 <!-- Buy Now Modal -->
-<div class="modal fade" id="buyNowModal" tabindex="-1" aria-labelledby="buyNowModalLabel" aria-hidden="true">
+<div class="modal fade overflow-hidden" id="buyNowModal" tabindex="-1" aria-labelledby="buyNowModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -847,139 +908,247 @@
 
       <div class="form-wrapper my-3">
 
-        
+
         <form [formGroup]="deviceForm" (ngSubmit)="onDeviceFormSubmit()">
-  <div class="row">
-    <div class="col-md-5">
-      <!-- Name -->
-      <div class="mb-3">
-        <label class="form-label required-asterisk">Name</label>
-        <input type="text" class="form-control w-100"  formControlName="name" placeholder="Name">
-        <div *ngIf="name?.invalid && (name?.touched || name?.dirty)" class="text-danger">
-          <small *ngIf="name?.errors?.['required']">Name is required</small>
-        </div>
-      </div>
+          <div class="row">
+            <div class="col-md-5">
+              <!-- Name -->
+              <div class="mb-3">
+                <label class="form-label required-asterisk">Name</label>
+                <input type="text" class="form-control w-100" formControlName="name" placeholder="Name">
+                <!-- <div *ngIf="deviceFormName?.invalid && (deviceFormName?.touched || deviceFormName?.dirty)"
+                  class="text-danger">
+                  <small *ngIf="deviceFormName?.errors?.['required']">Name is required</small>
+                  <small *ngIf="deviceFormName?.errors?.['pattern']">Only letters and spaces allowed</small>
 
-      <!-- Email -->
-      <div class="mb-3">
-        <label class="form-label required-asterisk">Email ID</label>
-        <input type="email" class="form-control w-100" formControlName="email" placeholder="Email ID">
-        <div *ngIf="email?.invalid && (email?.touched || email?.dirty)" class="text-danger">
-          <small *ngIf="email?.errors?.['required']">Email is required</small>
-          <small *ngIf="email?.errors?.['email']">Please enter a valid email address.</small>
-        </div>
-      </div>
+                </div> -->
 
-      <!-- Mobile -->
-      <div class="mb-3">
-        <label class="form-label required-asterisk">Mobile number</label>
-        <input type="tel" class="form-control w-100" formControlName="mobile" placeholder="Mobile number">
-        <div *ngIf="mobile?.invalid && (mobile?.touched || mobile?.dirty)" class="text-danger">
-          <small *ngIf="mobile?.errors?.['required']">Mobile number is required</small>
-          <small *ngIf="mobile?.errors?.['pattern']">Enter a valid 10-digit mobile number</small>
-        </div>
-      </div>
+                <div class="error-container">
+                  <ng-container *ngIf="deviceFormName?.invalid && (deviceFormName?.touched || deviceFormName?.dirty)">
+                    <small *ngIf="deviceFormName?.errors?.['required']">Name is required</small>
+                    <small *ngIf="deviceFormName?.errors?.['pattern']">Only letters and spaces allowed</small>
+                  </ng-container>
+                </div>
 
-      <!-- Remarks -->
-      <div class="mb-3">
-        <label class="form-label required-asterisk">Remarks</label>
-        <input type="text" class="form-control w-100" formControlName="remarks" placeholder="Remarks">
-        <div *ngIf="remarks?.invalid && (remarks?.touched || remarks?.dirty)" class="text-danger">
-          <small *ngIf="remarks?.errors?.['required']">Remarks are required</small>
-        </div>
-      </div>
-    </div>
+              </div>
 
-    <div class="col-md-7">
-      <!-- Building -->
-      <div class="mb-3">
-        <label class="form-label required-asterisk">Building/Society</label>
-        <input type="text" class="form-control w-100" formControlName="building" placeholder="Building">
-        <div *ngIf="building?.invalid && (building?.touched || building?.dirty)" class="text-danger">
-          <small *ngIf="building?.errors?.['required']">Building/Society name is required</small>
-        </div>
-      </div>
+              <!-- Email -->
+              <div class="mb-3">
+                <label class="form-label required-asterisk">Email ID</label>
+                <input type="email" class="form-control w-100" formControlName="email" placeholder="Email ID">
+                <!-- <div *ngIf="deviceFormEmail?.invalid && (deviceFormEmail?.touched || deviceFormEmail?.dirty)"
+                  class="text-danger">
+                  <small *ngIf="deviceFormEmail?.errors?.['required']">Email is required</small>
+                  <small *ngIf="deviceFormEmail?.errors?.['pattern']">Please enter a valid email address</small>
+                </div> -->
+                <div class="error-container">
+                  <ng-container
+                    *ngIf="deviceFormEmail?.invalid && (deviceFormEmail?.touched || deviceFormEmail?.dirty)">
+                    <small *ngIf="deviceFormEmail?.errors?.['required']">Email is required</small>
+                    <small *ngIf="deviceFormEmail?.errors?.['pattern']">Please enter a valid email address</small>
+                  </ng-container>
+                </div>
 
-      <!-- Address -->
-      <div class="mb-3">
-        <label class="form-label required-asterisk">Address</label>
-        <input type="text" class="form-control w-100" formControlName="address" placeholder="Address">
-        <div *ngIf="address?.invalid && (address?.touched || address?.dirty)" class="text-danger">
-          <small *ngIf="address?.errors?.['required']">Address is required</small>
-        </div>
-      </div>
+              </div>
 
-      <!-- City -->
-      <div class="row">
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label class="form-label required-asterisk">City</label>
-            <input type="text" class="form-control w-100" formControlName="city" placeholder="City">
-            <div *ngIf="city?.invalid && (city?.touched || city?.dirty)" class="text-danger">
-              <small *ngIf="city?.errors?.['required']">City is required</small>
-              <small *ngIf="city?.errors?.['pattern']">Only letters and spaces allowed</small>
+              <!-- Mobile -->
+              <div class="mb-3">
+                <label class="form-label required-asterisk">Mobile number</label>
+                <input type="tel" class="form-control w-100" formControlName="mobile" placeholder="Mobile number">
+                <!-- <div *ngIf="deviceFormMobile?.invalid && (deviceFormMobile?.touched || deviceFormMobile?.dirty)"
+                  class="text-danger">
+                  <small *ngIf="deviceFormMobile?.errors?.['required']">Mobile number is required</small>
+                  <small *ngIf="deviceFormMobile?.errors?.['pattern']">Enter a valid 10-digit mobile number</small>
+                </div> -->
+
+                <div class="error-container">
+                  <ng-container
+                    *ngIf="deviceFormMobile?.invalid && (deviceFormMobile?.touched || deviceFormMobile?.dirty)">
+                    <small *ngIf="deviceFormMobile?.errors?.['required']">Mobile number is required</small>
+                    <small *ngIf="deviceFormMobile?.errors?.['pattern']">Enter a valid 10-digit mobile number</small>
+                  </ng-container>
+                </div>
+
+              </div>
+
+              <!-- Remarks -->
+              <div class="mb-3">
+                <label class="form-label required-asterisk">Remarks</label>
+                <input type="text" class="form-control w-100" formControlName="remarks" placeholder="Remarks">
+                <!-- <div *ngIf="deviceFormRemarks?.invalid && (deviceFormRemarks?.touched || deviceFormRemarks?.dirty)"
+                  class="text-danger">
+                  <small *ngIf="deviceFormRemarks?.errors?.['required']">Remarks are required</small>
+                </div> -->
+
+                <div class="error-container">
+                  <ng-container
+                    *ngIf="deviceFormRemarks?.invalid && (deviceFormRemarks?.touched || deviceFormRemarks?.dirty)">
+                    <small *ngIf="deviceFormRemarks?.errors?.['required']">Remarks are required</small>
+                  </ng-container>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-md-7">
+              <!-- Building -->
+              <div class="mb-3">
+                <label class="form-label required-asterisk">Building/Society</label>
+                <input type="text" class="form-control w-100" formControlName="building" placeholder="Building">
+                <!-- <div *ngIf="deviceFormBuilding?.invalid && (deviceFormBuilding?.touched || deviceFormBuilding?.dirty)"
+                  class="text-danger">
+                  <small *ngIf="deviceFormBuilding?.errors?.['required']">Building/Society name is required</small>
+                </div> -->
+
+                <div class="error-container">
+                  <ng-container
+                    *ngIf="deviceFormBuilding?.invalid && (deviceFormBuilding?.touched || deviceFormBuilding?.dirty)">
+                    <small *ngIf="deviceFormBuilding?.errors?.['required']">
+                      Building/Society name is required
+                    </small>
+                  </ng-container>
+                </div>
+
+              </div>
+
+              <!-- Address -->
+              <div class="mb-3">
+                <label class="form-label required-asterisk">Address</label>
+                <input type="text" class="form-control w-100" formControlName="address" placeholder="Address">
+                <!-- <div *ngIf="deviceFormAddress?.invalid && (deviceFormAddress?.touched || deviceFormAddress?.dirty)"
+                  class="text-danger">
+                  <small *ngIf="deviceFormAddress?.errors?.['required']">Address is required</small>
+                </div> -->
+
+                <div class="error-container">
+                  <ng-container
+                    *ngIf="deviceFormAddress?.invalid && (deviceFormAddress?.touched || deviceFormAddress?.dirty)">
+                    <small *ngIf="deviceFormAddress?.errors?.['required']">Address is required</small>
+                  </ng-container>
+                </div>
+
+              </div>
+
+              <!-- City -->
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label required-asterisk">City</label>
+                    <input type="text" class="form-control w-100" formControlName="city" placeholder="City">
+                    <!-- <div *ngIf="deviceFormCity?.invalid && (deviceFormCity?.touched || deviceFormCity?.dirty)"
+                      class="text-danger">
+                      <small *ngIf="deviceFormCity?.errors?.['required']">City is required</small>
+                      <small *ngIf="deviceFormCity?.errors?.['pattern']">Only letters and spaces allowed</small>
+                    </div> -->
+
+                    <div class="error-container">
+                      <ng-container
+                        *ngIf="deviceFormCity?.invalid && (deviceFormCity?.touched || deviceFormCity?.dirty)">
+                        <small *ngIf="deviceFormCity?.errors?.['required']">City is required</small>
+                        <small *ngIf="deviceFormCity?.errors?.['pattern']">Only letters and spaces allowed</small>
+                      </ng-container>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- State -->
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label required-asterisk">State</label>
+                    <input type="text" class="form-control w-100" formControlName="state" placeholder="State">
+                    <!-- <div *ngIf="deviceFormState?.invalid && (deviceFormState?.touched || deviceFormState?.dirty)"
+                      class="text-danger">
+                      <small *ngIf="deviceFormState?.errors?.['required']">State is required</small>
+                      <small *ngIf="deviceFormState?.errors?.['minlength']">Minimum 2 characters required</small>
+                      <small *ngIf="deviceFormState?.errors?.['pattern']">Only letters and spaces allowed</small>
+                    </div> -->
+                    <div class="error-container">
+                      <ng-container
+                        *ngIf="deviceFormState?.invalid && (deviceFormState?.touched || deviceFormState?.dirty)">
+                        <small *ngIf="deviceFormState?.errors?.['required']">State is required</small>
+                        <small *ngIf="deviceFormState?.errors?.['minlength']">Minimum 2 characters required</small>
+                        <small *ngIf="deviceFormState?.errors?.['pattern']">Only letters and spaces allowed</small>
+                      </ng-container>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- State -->
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label class="form-label required-asterisk">State</label>
-            <input type="text" class="form-control w-100" formControlName="state" placeholder="State">
-            <div *ngIf="state?.invalid && (state?.touched || state?.dirty)" class="text-danger">
-              <small *ngIf="state?.errors?.['required']">State is required</small>
-              <small *ngIf="state?.errors?.['minlength']">Minimum 2 characters required</small>
-              <small *ngIf="state?.errors?.['pattern']">Only letters and spaces allowed</small>
+          <!-- Device Related Section -->
+          <div class="row mt-1">
+            <!-- Devices -->
+            <div class="col-md-4 mb-3">
+              <label class="form-label">Number of devices</label>
+              <input type="number" class="form-control w-75" formControlName="devices" min="0" />
+            </div>
+
+            <!-- Install -->
+            <div class="col-md-4 mb-3">
+              <label class="form-label">Installation Needed?</label>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" value="yes" formControlName="install" id="installYes" />
+                <label class="form-check-label" for="installYes">Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" value="no" formControlName="install" id="installNo" />
+                <label class="form-check-label" for="installNo">No</label>
+              </div>
+            </div>
+
+            <!-- Subscription -->
+            <div class="col-md-4 mb-3">
+              <label class="form-label">Subscription</label>
+              <input type="number" class="form-control w-75" formControlName="subscriptions" min="0" />
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Device Related Section -->
-  <div class="row mt-4">
-    <!-- Devices -->
-    <div class="col-md-4 mb-3">
-      <label class="form-label">Number of devices</label>
-      <input type="number" class="form-control w-75" formControlName="devices" min="0" />
-    </div>
+          <!-- Total Cost -->
+          <div class="text-end fw-bold fs-5  mb-2">
+            Total Cost: ₹ {{ totalCost }}
+          </div>
 
-    <!-- Install -->
-    <div class="col-md-4 mb-3">
-      <label class="form-label">Installation Needed?</label>
-      <div class="form-check form-check-inline">
-        <input type="radio" class="form-check-input" value="yes" formControlName="install" id="installYes" />
-        <label class="form-check-label" for="installYes">Yes</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input type="radio" class="form-check-input" value="no" formControlName="install" id="installNo" />
-        <label class="form-check-label" for="installNo">No</label>
-      </div>
-    </div>
-
-    <!-- Subscription -->
-    <div class="col-md-4 mb-3">
-      <label class="form-label">Subscription</label>
-      <input type="number" class="form-control w-75" formControlName="subscriptions" min="0" />
-    </div>
-  </div>
-
-  <!-- Total Cost -->
-  <div class="text-end fw-bold fs-5 mt-2 mb-4">
-    Total Cost: ₹ {{ totalCost }}
-  </div>
-
-  <!-- Submit -->
-  <div class="text-end">
-    <button class="btn btn-submit px-4" type="submit" [disabled]="deviceForm.invalid">Submit</button>
-  </div>
-</form>
+          <!-- Submit -->
+          <div class="text-end">
+            <button class="btn btn-submit px-4" type="submit" [disabled]="deviceForm.invalid">Submit</button>
+          </div>
+        </form>
 
 
       </div>
 
+    </div>
+  </div>
+</div>
+
+
+<!-- Success Pop-up -->
+
+<div class="modal fade" id="successPopup" tabindex="-1" aria-labelledby="successPopupLabel" aria-hidden="true"
+  #successModal>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-white toast-success-bg">
+      <div class="modal-body text-center p-4">
+        <i class="fas fa-check-circle fa-2x mb-3"></i>
+        <h5 class="mb-0">{{ successMessage }}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Erorr Pop-up -->
+
+<div class="modal fade" id="errorPopup" tabindex="-1" aria-labelledby="errorPopupLabel" aria-hidden="true" #errorModal>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-white bg-danger">
+      <div class="modal-body text-center p-4">
+        <i class="fas fa-times-circle fa-2x mb-3"></i>
+        <h5 class="mb-0">{{ errorMessage }}</h5>
+      </div>
     </div>
   </div>
 </div>

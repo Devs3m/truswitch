@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/api.service';
 import { Formdatadetails } from 'src/app/formdatadetails';
+declare var bootstrap: any;
+
 
 @Component({
   selector: 'app-home',
@@ -9,7 +11,7 @@ import { Formdatadetails } from 'src/app/formdatadetails';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  
+
   selectedTab: 'commercial' | 'workplace' = 'commercial';
 
   activeFaqTab: string = 'society';
@@ -21,6 +23,18 @@ export class HomeComponent {
 
   myForm!: FormGroup;
 
+  successMessage: string = '';
+  errorMessage: string = '';
+  showToast: boolean = false;
+
+  currentYear: number = new Date().getFullYear();
+
+  @ViewChild('successModal') successModal!: ElementRef;
+  @ViewChild('errorModal') errorModal!: ElementRef;
+
+
+
+
   constructor(private fb: FormBuilder, private dataservice: ApiService) { }
 
   ngOnInit() {
@@ -28,37 +42,36 @@ export class HomeComponent {
     //General Form 
 
     this.myForm = this.fb.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
       email: ['', [Validators.required, Validators.email]],
-      mobile: ['', [Validators.required,  Validators.pattern('^[6-9]\\d{9}$')]],
+      mobile: ['', [Validators.required, Validators.pattern('^[6-9]\\d{9}$')]],
       remarks: ['', Validators.required],
-      building: ['', Validators.required],
+      building: ['', [Validators.required,]],
       address: ['', Validators.required],
-       city: ['', [Validators.required,Validators.pattern('^[a-zA-Z ]*$')  ]],
-       state: ['', [Validators.required,Validators.pattern('^[a-zA-Z ]*$')
-  ]],
+      city: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
+      state: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$'), Validators.minLength(2)
+      ]],
     });
 
 
     // Buy Form  
 
     this.deviceForm = this.fb.group({
-       // Device related
+      // Device related
       devices: [''],
       install: [''],
       subscriptions: [''],
 
-        // User Details
+      // User Details
 
-       name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      mobile: ['', [Validators.required,  Validators.pattern('^[6-9]\\d{9}$')]],
+      name: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
+      email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$')]],
+      mobile: ['', [Validators.required, Validators.pattern('^[6-9]\\d{9}$')]],
       remarks: ['', Validators.required],
       building: ['', Validators.required],
       address: ['', Validators.required],
-       city: ['', [Validators.required,Validators.pattern('^[a-zA-Z ]*$')  ]],
-       state: ['', [Validators.required,Validators.pattern('^[a-zA-Z ]*$')
-  ]],
+      city: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
+      state: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$'), Validators.minLength(2)]],
     });
 
 
@@ -175,44 +188,66 @@ export class HomeComponent {
 
 
   onSubmit(): void {
-  if (this.myForm.valid) {
-    const formValue = this.myForm.value;
+    if (this.myForm.valid) {
+      const formValue = this.myForm.value;
 
-    const payload = {
-      name: formValue.name,
-      emailid: formValue.email,
-      mobile: formValue.mobile,
-      building: formValue.building,
-      address: formValue.address,
-      city: formValue.city,
-      state: formValue.state,
-      remarks: formValue.remarks,
-      formtype: 'Join now',  
-      noofdevice: 0,
-      instanllation: false,      
-      subscription: "0",           
-      totalcost: 0,              
-      createdat: new Date().toISOString()
-    };
+      const payload = {
+        name: formValue.name,
+        emailid: formValue.email,
+        mobile: formValue.mobile,
+        building: formValue.building,
+        address: formValue.address,
+        city: formValue.city,
+        state: formValue.state,
+        remarks: formValue.remarks,
+        formtype: 'Join now',
+        noofdevice: 0,
+        instanllation: false,
+        subscription: "0",
+        totalcost: 0,
+        createdat: new Date().toISOString()
+      };
 
-    console.log('General Form Payload:', payload);
+      console.log('General Form Payload:', payload);
 
-    this.dataservice.addorderData(payload).subscribe({
-      next: (res) => {
-        console.log('Submitted successfully:', res);
-        alert('General form submitted successfully!');
-        this.myForm.reset();
-      },
-      error: (err) => {
-        console.error('Error submitting general form:', err);
-        alert('Submission failed. Try again.');
-      }
-    });
-  } else {
-    console.log('General Form Invalid');
-    this.myForm.markAllAsTouched();
+      this.dataservice.addorderData(payload).subscribe({
+        next: (res) => {
+          console.log('Submitted successfully:', res);
+          this.successMessage = 'Submitted Successfully';
+          // ✅ Show popup modal
+          const popupModal = new bootstrap.Modal(this.successModal.nativeElement);
+          popupModal.show();
+
+          // ✅ Auto-close after 3 seconds
+          setTimeout(() => {
+            popupModal.hide();
+          }, 3000);
+
+          // Close Modal
+          const modalEl = document.getElementById('buyNowModal');
+          const modalInstance = bootstrap.Modal.getInstance(modalEl);
+          if (modalInstance) modalInstance.hide();
+
+          this.myForm.reset();
+        },
+        error: (err) => {
+          console.error('Error submitting general form:', err);
+          this.errorMessage = 'Error in submission, please try after sometime';
+
+          const errorPopup = new bootstrap.Modal(this.errorModal.nativeElement);
+          errorPopup.show();
+
+          setTimeout(() => {
+            errorPopup.hide();
+            this.errorMessage = '';
+          }, 3000);
+        }
+      });
+    } else {
+      console.log('General Form Invalid');
+      this.myForm.markAllAsTouched();
+    }
   }
-}
 
 
 
@@ -224,58 +259,103 @@ export class HomeComponent {
     this.totalCost = (devices * deviceCost) + installCost + (subscriptions * subscriptionCost);
   }
 
+  onDeviceFormSubmit(): void {
+    if (this.deviceForm.valid) {
+      const formValue = this.deviceForm.value;
+
+      const payload = {
+        name: formValue.name,
+        emailid: formValue.email,
+        mobile: formValue.mobile,
+        building: formValue.building,
+        address: formValue.address,
+        city: formValue.city,
+        state: formValue.state,
+        remarks: formValue.remarks,
+        formtype: 'Buy now',
+        noofdevice: formValue.devices,
+        instanllation: formValue.install,
+        subscription: formValue.subscriptions,
+        totalcost: this.totalCost,
+        createdat: new Date().toISOString()
+      };
+
+      this.dataservice.addorderData(payload).subscribe({
+        next: (res) => {
+          console.log('Saved successfully:', res);
+          this.successMessage = 'Submitted Successfully';
+          // ✅ Show popup modal
+          const popupModal = new bootstrap.Modal(this.successModal.nativeElement);
+          popupModal.show();
+
+          // ✅ Auto-close after 3 seconds
+          setTimeout(() => {
+            popupModal.hide();
+          }, 3000);
+
+          // Close Modal
+          const modalEl = document.getElementById('buyNowModal');
+          const modalInstance = bootstrap.Modal.getInstance(modalEl);
+          if (modalInstance) modalInstance.hide();
+
+          this.deviceForm.reset({
+            devices: '',
+            install: '',
+            subscriptions: '',
+          });
+          this.totalCost = 0;
 
 
+        },
+        error: (err) => {
+          console.error('Submit error:', err);
+          this.errorMessage = 'Error in submission, please try after sometime';
 
-onDeviceFormSubmit(): void {
-  if (this.deviceForm.valid) {
-    const formValue = this.deviceForm.value;
+          const errorPopup = new bootstrap.Modal(this.errorModal.nativeElement);
+          errorPopup.show();
 
-    const payload = {
-      name: formValue.name,
-      emailid: formValue.email,
-      mobile: formValue.mobile,
-      building: formValue.building,
-      address: formValue.address,
-      city: formValue.city,
-      state: formValue.state,
-      remarks: formValue.remarks,
-       formtype: 'Buy now', 
-      noofdevice: formValue.devices,
-      instanllation: formValue.install,
-      subscription: formValue.subscriptions,
-      totalcost: this.totalCost,
-      createdat: new Date().toISOString()
-    };
+          setTimeout(() => {
+            errorPopup.hide();
+            this.errorMessage = '';
+          }, 3000);
 
-    console.log('Submitting:', payload);
-
-    this.dataservice.addorderData(payload).subscribe({
-      next: (res) => {
-        console.log('Saved successfully:', res);
-        alert('Form submitted successfully!');
-
-        // Reset form with default values
-        this.deviceForm.reset({
-          devices: '',
-          install: '',
-          subscriptions: '',
-        });
-        this.totalCost = 0;
-      },
-      error: (err) => {
-        console.error('Submit error:', err);
-        alert('Something went wrong. Try again.');
-      }
-    });
-
-  } else {
-    this.myForm.markAllAsTouched();
+        }
+      });
+    } else {
+      this.deviceForm.markAllAsTouched();
+    }
   }
-}
 
 
-    ngAfterViewInit(): void {
+
+
+
+  //   onDeviceFormSubmit(): void {
+  //     if (this.deviceForm.valid) {
+  //       const formData = this.deviceForm.value;
+  //       console.log('Form submitted:', formData);
+
+  //       // ✅ Close modal
+  //       const modalEl = document.getElementById('buyNowModal');
+  //       const modalInstance = bootstrap.Modal.getInstance(modalEl);
+  //       if (modalInstance) {
+  //         modalInstance.hide();
+  //       }
+
+  //       // ✅ Show success alert
+  //       this.successMessage = 'Form submitted successfully!';
+  //       this.deviceForm.reset();
+
+  //       // Auto-dismiss alert after 3 seconds
+  //       setTimeout(() => this.successMessage = '', 3000);
+  //     } else {
+  //       this.deviceForm.markAllAsTouched();
+  //     }
+  //   }
+  // }
+
+
+  ngAfterViewInit(): void {
     const buyNowModal = document.getElementById('buyNowModal');
     if (buyNowModal) {
       buyNowModal.addEventListener('hidden.bs.modal', () => {
@@ -291,55 +371,88 @@ onDeviceFormSubmit(): void {
     const joinModal = document.getElementById('joinModal');
     if (joinModal) {
       joinModal.addEventListener('hidden.bs.modal', () => {
-        this.myForm.reset(); 
+        this.myForm.reset();
       });
     }
   }
 
   //Form Validation 
 
-    get name() {
+  get name() {
     return this.myForm.get('name');
   }
 
-    get email() {
+  get email() {
     return this.myForm.get('email');
   }
 
   get mobile() {
-  return this.myForm.get('mobile');
-}
+    return this.myForm.get('mobile');
+  }
 
-get remarks() {
-  return this.myForm.get('remarks');
-}
+  get remarks() {
+    return this.myForm.get('remarks');
+  }
 
-get building() {
-  return this.myForm.get('building');
-}
+  get building() {
+    return this.myForm.get('building');
+  }
 
-get address() {
-  return this.myForm.get('address');
-}
+  get address() {
+    return this.myForm.get('address');
+  }
 
-get city() {
-  return this.myForm.get('city');
-}
+  get city() {
+    return this.myForm.get('city');
+  }
 
-get state() {
-  return this.myForm.get('state');
-}
+  get state() {
+    return this.myForm.get('state');
+  }
+
+  //device form 
 
 
-//  get name() { return this.deviceForm.get('name') || this.myForm.get('name'); }
-//   get email() { return this.deviceForm.get('email') || this.myForm.get('email'); }
-//   get mobile() { return this.deviceForm.get('mobile') || this.myForm.get('mobile'); }
-//   get remarks() { return this.deviceForm.get('remarks') || this.myForm.get('remarks'); }
-//   get building() { return this.deviceForm.get('building') || this.myForm.get('building'); }
-//   get address() { return this.deviceForm.get('address') || this.myForm.get('address'); }
-//   get city() { return this.deviceForm.get('city') || this.myForm.get('city'); }
-//   get state() { return this.deviceForm.get('state') || this.myForm.get('state'); }
+  get deviceFormName() {
+    return this.deviceForm.get('name');
+  }
 
-isMenuOpen: boolean = false;
+  get deviceFormEmail() {
+    return this.deviceForm.get('email');
+  }
+
+  get deviceFormMobile() {
+    return this.deviceForm.get('mobile');
+  }
+
+  get deviceFormRemarks() {
+    return this.deviceForm.get('remarks');
+  }
+
+  get deviceFormBuilding() {
+    return this.deviceForm.get('building');
+  }
+
+  get deviceFormAddress() {
+    return this.deviceForm.get('address');
+  }
+
+  get deviceFormCity() {
+    return this.deviceForm.get('city');
+  }
+
+  get deviceFormState() {
+    return this.deviceForm.get('state');
+  }
+  //  get name() { return this.deviceForm.get('name') || this.myForm.get('name'); }
+  //   get email() { return this.deviceForm.get('email') || this.myForm.get('email'); }
+  //   get mobile() { return this.deviceForm.get('mobile') || this.myForm.get('mobile'); }
+  //   get remarks() { return this.deviceForm.get('remarks') || this.myForm.get('remarks'); }
+  //   get building() { return this.deviceForm.get('building') || this.myForm.get('building'); }
+  //   get address() { return this.deviceForm.get('address') || this.myForm.get('address'); }
+  //   get city() { return this.deviceForm.get('city') || this.myForm.get('city'); }
+  //   get state() { return this.deviceForm.get('state') || this.myForm.get('state'); }
+
+  isMenuOpen: boolean = false;
 
 }
