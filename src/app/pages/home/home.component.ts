@@ -214,11 +214,11 @@ export class HomeComponent {
         next: (res) => {
           console.log('Submitted successfully:', res);
           this.successMessage = 'Submitted Successfully';
-          // ✅ Show popup modal
+          // Show popup modal
           const popupModal = new bootstrap.Modal(this.successModal.nativeElement);
           popupModal.show();
 
-          // ✅ Auto-close after 3 seconds
+          //  Auto-close after 3 seconds
           setTimeout(() => {
             popupModal.hide();
           }, 3000);
@@ -284,11 +284,11 @@ export class HomeComponent {
         next: (res) => {
           console.log('Saved successfully:', res);
           this.successMessage = 'Submitted Successfully';
-          // ✅ Show popup modal
+          // Show popup modal
           const popupModal = new bootstrap.Modal(this.successModal.nativeElement);
           popupModal.show();
 
-          // ✅ Auto-close after 3 seconds
+          //  Auto-close after 3 seconds
           setTimeout(() => {
             popupModal.hide();
           }, 3000);
@@ -330,29 +330,7 @@ export class HomeComponent {
 
 
 
-  //   onDeviceFormSubmit(): void {
-  //     if (this.deviceForm.valid) {
-  //       const formData = this.deviceForm.value;
-  //       console.log('Form submitted:', formData);
-
-  //       // ✅ Close modal
-  //       const modalEl = document.getElementById('buyNowModal');
-  //       const modalInstance = bootstrap.Modal.getInstance(modalEl);
-  //       if (modalInstance) {
-  //         modalInstance.hide();
-  //       }
-
-  //       // ✅ Show success alert
-  //       this.successMessage = 'Form submitted successfully!';
-  //       this.deviceForm.reset();
-
-  //       // Auto-dismiss alert after 3 seconds
-  //       setTimeout(() => this.successMessage = '', 3000);
-  //     } else {
-  //       this.deviceForm.markAllAsTouched();
-  //     }
-  //   }
-  // }
+ 
 
 
   ngAfterViewInit(): void {
@@ -444,14 +422,7 @@ export class HomeComponent {
   get deviceFormState() {
     return this.deviceForm.get('state');
   }
-  //  get name() { return this.deviceForm.get('name') || this.myForm.get('name'); }
-  //   get email() { return this.deviceForm.get('email') || this.myForm.get('email'); }
-  //   get mobile() { return this.deviceForm.get('mobile') || this.myForm.get('mobile'); }
-  //   get remarks() { return this.deviceForm.get('remarks') || this.myForm.get('remarks'); }
-  //   get building() { return this.deviceForm.get('building') || this.myForm.get('building'); }
-  //   get address() { return this.deviceForm.get('address') || this.myForm.get('address'); }
-  //   get city() { return this.deviceForm.get('city') || this.myForm.get('city'); }
-  //   get state() { return this.deviceForm.get('state') || this.myForm.get('state'); }
+  
 
   isMenuOpen: boolean = false;
 

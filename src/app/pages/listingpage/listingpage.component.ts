@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { Formdatadetails } from 'src/app/formdatadetails';
+import { DevExpressPdfService } from 'src/app/services/dev-express-pdf.service';
 // import { DevExpressPdfService } from 'src/app/services/dev-express-pdf.service';
 // import * as jsPDF from 'jspdf';
 // import * as moment from 'moment';
@@ -15,7 +16,7 @@ export class ListingpageComponent {
 
   OrderDetails: Formdatadetails[] = [];
   totalCount: number = 0;
-  constructor(private dataService: ApiService, ) {
+  constructor(private dataService: ApiService,private pdfservice: DevExpressPdfService ) {
 
   }
   ngOnInit(): void {
@@ -44,7 +45,7 @@ export class ListingpageComponent {
 
 
 onExporting(e: any, fileName: string): void {
-    // this.pdfservice.exporting(e, fileName);
+    this.pdfservice.exporting(e, fileName);
 }
 
 
